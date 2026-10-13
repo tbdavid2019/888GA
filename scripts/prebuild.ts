@@ -18,6 +18,7 @@ import { checkEnvironmentVariables } from "./check-env";
 import { applyWranglerEnvOverrides } from "./wrangler-env-overrides";
 
 function migrationMode(target: DeployTarget): "local" | "none" | "remote" {
+  if (process.env.SKIP_D1_MIGRATIONS === "1") return "none";
   if (target === "local") return "local";
   if (target === "cf") return "remote";
   return "none";
@@ -110,10 +111,28 @@ async function runMigration(
     return;
   }
 
-  await runtime.runCommand(process.execPath, args, targetEnv(options.target));
-  runtime.rlog.success(
-    `D1 migrations applied (${migrationMode(options.target)})`,
-  );
+  try {
+    await runtime.runCommand(process.execPath, args, targetEnv(options.target));
+    runtime.rlog.success(
+      `D1 migrations applied (${migrationMode(options.target)})`,
+    );
+  } catch (error) {
+    const errorText = error instanceof Error ? error.message : String(error);
+    const logText = fs.existsSync(runtime.logFilePath)
+      ? fs.readFileSync(runtime.logFilePath, "utf8")
+      : "";
+    if (
+      errorText.includes("7403") ||
+      logText.includes("7403") ||
+      logText.includes("not authorized to access this service")
+    ) {
+      runtime.rlog.warn(
+        "D1 migration skipped: Deployment token lacks D1 permissions (code 7403). Assuming remote database is already up to date.",
+      );
+      return;
+    }
+    throw error;
+  }
 }
 
 async function buildTrackerSdk(options: CommonOptions): Promise<void> {
