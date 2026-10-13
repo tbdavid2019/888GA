@@ -38,6 +38,25 @@ export const shareBreakdownFixtures = [
     } satisfies ShareBreakdownViewProps,
   },
   {
+    id: "sharing.share-breakdown.browser-share-second-row",
+    title: "Browser share with a second legend row",
+    presentation: { kind: "scenario", scenario: "browser-share-second-row" },
+    props: {
+      title: "Browser Share",
+      items: [
+        { key: "chrome", label: "Chrome", value: 6 },
+        { key: "line", label: "Line", value: 3 },
+        { key: "facebook", label: "Facebook", value: 3 },
+        { key: "mobile-safari", label: "Mobile Safari", value: 2 },
+        { key: "safari", label: "Safari", value: 1 },
+      ],
+      maxItems: 6,
+      locale: "en-US",
+      valueLabel: "visitors",
+      emptyLabel: "No browsers",
+    } satisfies ShareBreakdownViewProps,
+  },
+  {
     id: "sharing.share-breakdown.loading",
     title: "Loading",
     presentation: { kind: "scenario", scenario: "loading" },

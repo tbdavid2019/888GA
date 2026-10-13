@@ -37,11 +37,11 @@ export interface ShareBarChartProps {
 }
 
 const SHARE_BAR_LEGEND_GRID_CLASS: Record<ShareBarChartMaxItems, string> = {
-  2: "grid-cols-2 h-4 content-start",
-  3: "grid-cols-3 h-4 content-start",
-  4: "grid-cols-2 h-10 content-start",
-  5: "grid-cols-3 h-10 content-start",
-  6: "grid-cols-3 h-10 content-start",
+  2: "grid-cols-2 min-h-4 content-start",
+  3: "grid-cols-3 min-h-4 content-start",
+  4: "grid-cols-2 min-h-10 content-start",
+  5: "grid-cols-3 min-h-10 content-start",
+  6: "grid-cols-3 min-h-10 content-start",
 };
 
 function ShareBarChartContentSkeleton({
