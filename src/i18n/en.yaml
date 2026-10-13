@@ -2020,7 +2020,8 @@ errorPage:
 actions:
   logout: Logout
   switchToEnglish: English
-  switchToChinese: 中文
+  switchToChinese: Simplified Chinese
+  switchToTraditionalChinese: Traditional Chinese
   switchToJapanese: 日本語
   switchToLight: Light
   switchToDark: Dark

@@ -30,6 +30,10 @@ describe("Regional Code and Language Translation Resolvers", () => {
       expect(zhTw.code).toBe("TW");
       expect(zhTw.label).toBe("中国台湾");
 
+      const zhTwTw = resolveCountryLabel("TW", "zh-tw", "未知");
+      expect(zhTwTw.code).toBe("TW");
+      expect(zhTwTw.label).toBe("台灣");
+
       const enTw = resolveCountryLabel("TW", "en", "Unknown");
       expect(enTw.code).toBe("TW");
       expect(enTw.label).not.toBe("中国台湾"); // Should format normally in English
@@ -120,6 +124,7 @@ describe("Regional Code and Language Translation Resolvers", () => {
   describe("resolveCountryFlagCode", () => {
     it("should redirect Taiwan region flags to China (CN) flag code in Chinese locales", () => {
       expect(resolveCountryFlagCode("TW", "zh")).toBe("CN");
+      expect(resolveCountryFlagCode("TW", "zh-tw")).toBe("TW"); // Preserved in Traditional Chinese
       expect(resolveCountryFlagCode("TW", "en")).toBe("TW"); // Remains untouched in English
     });
 

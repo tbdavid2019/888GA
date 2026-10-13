@@ -1946,7 +1946,8 @@ errorPage:
 actions:
   logout: ログアウト
   switchToEnglish: English
-  switchToChinese: 中文
+  switchToChinese: 簡体字中国語
+  switchToTraditionalChinese: 繁体字中国語
   switchToJapanese: 日本語
   switchToLight: ライト
   switchToDark: ダーク

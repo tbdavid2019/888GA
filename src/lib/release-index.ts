@@ -102,6 +102,14 @@ export async function fetchReleaseChangelog(
 
   if (response.ok) return response.text();
 
+  if (locale === "zh-tw" && response.status === 404) {
+    const zhResponse = await fetchRawFile(
+      `.github/releases/i18n/zh/${release.tagName}.md`,
+      signal,
+    );
+    if (zhResponse.ok) return zhResponse.text();
+  }
+
   if (locale !== "en" && response.status === 404) {
     const fallbackResponse = await fetchRawFile(release.changelogPath, signal);
     assertSuccessfulResponse(fallbackResponse, "English changelog");

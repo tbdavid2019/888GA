@@ -1935,7 +1935,8 @@ errorPage:
 actions:
   logout: 退出登录
   switchToEnglish: English
-  switchToChinese: 中文
+  switchToChinese: 简体中文
+  switchToTraditionalChinese: 繁體中文
   switchToJapanese: 日本語
   switchToLight: 浅色
   switchToDark: 深色
