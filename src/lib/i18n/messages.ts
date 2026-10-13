@@ -2497,6 +2497,23 @@ export interface AppMessages {
     createFailed: string;
     invalidInput: string;
     open: string;
+    snippet: string;
+    settings: string;
+    snippetDialog: {
+      title: string;
+      description: string;
+      copy: string;
+      copied: string;
+      copyFailed: string;
+      instructionsTitle: string;
+      step1: string;
+      step2: string;
+      step3: string;
+      goToAnalytics: string;
+      goToSettings: string;
+      siteIdLabel: string;
+      embedCodeLabel: string;
+    };
     columns: {
       name: string;
       domain: string;
@@ -5625,6 +5642,26 @@ const enMessages = {
     createFailed: "Failed to create site.",
     invalidInput: "Please provide a valid site name and domain.",
     open: "Open analytics",
+    snippet: "Embed Code",
+    settings: "Site Settings",
+    snippetDialog: {
+      title: "Tracking Embed Code",
+      description:
+        "Add the script snippet below to your website HTML to start collecting analytics.",
+      copy: "Copy Snippet",
+      copied: "Snippet copied to clipboard!",
+      copyFailed: "Failed to copy snippet.",
+      instructionsTitle: "Quick Installation",
+      step1: "Copy the tracking script tag above.",
+      step2:
+        "Paste it into the <head> section (or right before </body>) of your website HTML.",
+      step3:
+        "Refresh your website. Real-time visits will show up on your dashboard within seconds.",
+      goToAnalytics: "Open Analytics Dashboard",
+      goToSettings: "Advanced Site Settings",
+      siteIdLabel: "Site ID",
+      embedCodeLabel: "HTML Embed Code",
+    },
     columns: {
       name: "Name",
       domain: "Domain",
@@ -8720,6 +8757,23 @@ const zhMessages = {
     createFailed: "站点创建失败。",
     invalidInput: "请填写有效的站点名称和域名。",
     open: "打开分析",
+    snippet: "嵌入代码",
+    settings: "站点设置",
+    snippetDialog: {
+      title: "站点嵌入跟踪代码",
+      description: "将下方代码加入您网站的 HTML 中即可开始跟踪分析数据。",
+      copy: "复制嵌入代码",
+      copied: "代码已复制！",
+      copyFailed: "复制代码失败。",
+      instructionsTitle: "安装指引",
+      step1: "复制下方的跟踪代码标签。",
+      step2: "将代码粘贴至您网站 HTML 的 <head> 区域中（或 <body> 结束标签前）。",
+      step3: "刷新您的网站，访问数据将在数秒内显示于仪表盘中。",
+      goToAnalytics: "前往分析仪表盘",
+      goToSettings: "站点高级设置",
+      siteIdLabel: "站点 ID",
+      embedCodeLabel: "HTML 嵌入代码",
+    },
     columns: {
       name: "名称",
       domain: "域名",
@@ -11807,6 +11861,23 @@ const zhTwMessages = {
     createFailed: "站點建立失敗。",
     invalidInput: "請填寫有效的站點名稱和域名。",
     open: "開啟分析",
+    snippet: "嵌入代碼",
+    settings: "站點設定",
+    snippetDialog: {
+      title: "站點嵌入追蹤代碼",
+      description: "將下方代碼加入您網站的 HTML 中即可開始追蹤分析數據。",
+      copy: "複製嵌入代碼",
+      copied: "代碼已複製！",
+      copyFailed: "複製代碼失敗。",
+      instructionsTitle: "安裝指引",
+      step1: "複製下方的追蹤代碼標籤。",
+      step2: "將代碼貼至您網站 HTML 的 <head> 區塊中（或 <body> 結束標籤前）。",
+      step3: "重新整理您的網站，訪問數據將在數秒內顯示於儀表盤中。",
+      goToAnalytics: "前往分析儀表盤",
+      goToSettings: "站點進階設定",
+      siteIdLabel: "站點 ID",
+      embedCodeLabel: "HTML 嵌入代碼",
+    },
     columns: {
       name: "名稱",
       domain: "域名",
@@ -14979,6 +15050,26 @@ const jaMessages = {
     createFailed: "サイトを作成できません。",
     invalidInput: "有効なサイト名とドメインを入力してください。",
     open: "アナリティクスを開く",
+    snippet: "埋め込みコード",
+    settings: "サイト設定",
+    snippetDialog: {
+      title: "トラッキング埋め込みコード",
+      description:
+        "以下のスクリプトをウェブサイトのHTMLに追加して、アクセス解析を開始します。",
+      copy: "コードをコピー",
+      copied: "クリップボードにコピーしました！",
+      copyFailed: "コードのコピーに失敗しました。",
+      instructionsTitle: "インストール手順",
+      step1: "上記のトラッキングスクリプトタグをコピーします。",
+      step2:
+        "ウェブサイトのHTMLの <head>（または </body> の直前）に貼り付けます。",
+      step3:
+        "ウェブサイトを更新すると、数秒以内にダッシュボードへアクセスデータが表示されます。",
+      goToAnalytics: "アナリティクスを開く",
+      goToSettings: "サイト詳細設定",
+      siteIdLabel: "サイト ID",
+      embedCodeLabel: "HTML 埋め込みコード",
+    },
     columns: {
       name: "名前",
       domain: "ドメイン",

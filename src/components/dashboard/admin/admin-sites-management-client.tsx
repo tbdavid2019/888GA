@@ -15,10 +15,18 @@ import { PageHeading } from "@insightflare/ui/page-heading";
 import { Spinner } from "@insightflare/ui/spinner";
 import { TableCell, TableHead, TableRow } from "@insightflare/ui/table";
 import { TableActionButton } from "@insightflare/ui/table-action-button";
-import { RiAddLine, RiFileList3Line, RiLineChartLine } from "@remixicon/react";
+import {
+  RiAddLine,
+  RiCodeSSlashLine,
+  RiExternalLinkLine,
+  RiFileList3Line,
+  RiLineChartLine,
+  RiSettings4Line,
+} from "@remixicon/react";
 import { useQuery } from "@tanstack/react-query";
 import { toast } from "sonner";
 
+import { TrackingSnippetDialog } from "@/components/dashboard/admin/tracking-snippet-dialog";
 import { useDashboardQueryControls } from "@/components/dashboard/shell/dashboard-query-provider";
 import { shortDateTime } from "@/lib/dashboard/format";
 import { requestAdminService } from "@/lib/dashboard-api/client/admin-service";
@@ -46,6 +54,17 @@ function siteSlug(site: SiteData): string {
   if (candidate.length > 0) return candidate;
   return site.id.slice(0, 8);
 }
+function formatDomainHref(domain: string): string {
+  const trimmed = String(domain || "").trim();
+  if (/^https?:\/\//i.test(trimmed)) return trimmed;
+  if (
+    /^localhost(:\d+)?$/i.test(trimmed) ||
+    /^127\.0\.0\.1(:\d+)?$/i.test(trimmed)
+  ) {
+    return `http://${trimmed}`;
+  }
+  return `https://${trimmed}`;
+}
 async function fetchSites(
   teamId: string,
   signal?: AbortSignal,
@@ -68,6 +87,8 @@ export function AdminSitesManagementClient({
   const [name, setName] = useState("");
   const [domain, setDomain] = useState("");
   const [publicSlug, setPublicSlug] = useState("");
+  const [snippetSite, setSnippetSite] = useState<SiteData | null>(null);
+  const [isNewlyCreated, setIsNewlyCreated] = useState(false);
   const sitesQuery = useQuery({
     queryKey: ["dashboard", "admin-sites", activeTeam.id],
     queryFn: ({ signal }) => fetchSites(activeTeam.id, signal),
@@ -114,11 +135,10 @@ export function AdminSitesManagementClient({
       setDomain("");
       setPublicSlug("");
       toast.success(t.createSuccess);
-      navigateWithTransition(
-        router,
-        `/${locale}/app/${team.slug}/${siteSlug(data)}/settings`,
-      );
+      await sitesQuery.refetch();
       router.refresh();
+      setIsNewlyCreated(true);
+      setSnippetSite(data);
     } catch (error) {
       const message = error instanceof Error ? error.message : t.createFailed;
       toast.error(message || t.createFailed);
@@ -149,9 +169,11 @@ export function AdminSitesManagementClient({
               void handleCreateSite();
             }}
           >
-            <div className="space-y-1.5 md:col-span-2">
-              <Label htmlFor="admin-site-team">{t.team}</Label>
-              <Input id="admin-site-team" value={activeTeam.name} readOnly />
+            <div className="flex items-center gap-2 text-xs text-muted-foreground md:col-span-2">
+              <span>{t.team}:</span>
+              <span className="rounded border bg-muted/60 px-2 py-0.5 font-semibold text-foreground">
+                {activeTeam.name}
+              </span>
             </div>
             <div className="space-y-1.5">
               <Label htmlFor="admin-site-name">{t.name}</Label>
@@ -232,32 +254,94 @@ export function AdminSitesManagementClient({
             }
             rows={sites.map((site) => (
               <TableRow key={site.id}>
-                <TableCell className="font-medium">{site.name}</TableCell>
-                <TableCell className="font-mono">{site.domain}</TableCell>
+                <TableCell className="font-medium">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      navigateWithTransition(
+                        router,
+                        `/${locale}/app/${activeTeam.slug}/${siteSlug(site)}`,
+                      );
+                    }}
+                    className="cursor-pointer text-left font-semibold transition-colors hover:text-primary hover:underline"
+                  >
+                    {site.name}
+                  </button>
+                </TableCell>
+                <TableCell className="font-mono">
+                  <a
+                    href={formatDomainHref(site.domain)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 hover:text-primary hover:underline"
+                  >
+                    <span>{site.domain}</span>
+                    <RiExternalLinkLine className="size-3 text-muted-foreground" />
+                  </a>
+                </TableCell>
                 <TableCell className="font-mono">{siteSlug(site)}</TableCell>
                 <TableCell>
                   {shortDateTime(locale, site.createdAt, timeZone)}
                 </TableCell>
                 <TableCell className="text-right">
-                  {activeTeam ? (
+                  <div className="flex items-center justify-end gap-1">
                     <TableActionButton
                       onClick={() => {
-                        navigateWithTransition(
-                          router,
-                          `/${locale}/app/${activeTeam.slug}/${siteSlug(site)}`,
-                        );
+                        setIsNewlyCreated(false);
+                        setSnippetSite(site);
                       }}
-                      label={t.open}
+                      label={t.snippet}
                     >
-                      <RiLineChartLine className="size-4" />
+                      <RiCodeSSlashLine className="size-4 text-primary" />
                     </TableActionButton>
-                  ) : null}
+                    {activeTeam ? (
+                      <>
+                        <TableActionButton
+                          onClick={() => {
+                            navigateWithTransition(
+                              router,
+                              `/${locale}/app/${activeTeam.slug}/${siteSlug(site)}`,
+                            );
+                          }}
+                          label={t.open}
+                        >
+                          <RiLineChartLine className="size-4" />
+                        </TableActionButton>
+                        <TableActionButton
+                          onClick={() => {
+                            navigateWithTransition(
+                              router,
+                              `/${locale}/app/${activeTeam.slug}/${siteSlug(site)}/settings`,
+                            );
+                          }}
+                          label={t.settings}
+                        >
+                          <RiSettings4Line className="size-4" />
+                        </TableActionButton>
+                      </>
+                    ) : null}
+                  </div>
                 </TableCell>
               </TableRow>
             ))}
           />
         </CardContent>
       </Card>
+
+      <TrackingSnippetDialog
+        open={Boolean(snippetSite)}
+        onOpenChange={(open) => {
+          if (!open) {
+            setSnippetSite(null);
+            setIsNewlyCreated(false);
+          }
+        }}
+        site={snippetSite}
+        isNewlyCreated={isNewlyCreated}
+        locale={locale}
+        teamSlug={activeTeam.slug}
+        messages={messages}
+      />
     </div>
   );
 }

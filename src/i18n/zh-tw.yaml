@@ -2549,6 +2549,22 @@ adminSites:
   createFailed: 站點建立失敗。
   invalidInput: 請填寫有效的站點名稱和域名。
   open: 開啟分析
+  snippet: 嵌入代碼
+  settings: 站點設定
+  snippetDialog:
+    title: 站點嵌入追蹤代碼
+    description: 將下方代碼加入您網站的 HTML 中即可開始追蹤分析數據。
+    copy: 複製嵌入代碼
+    copied: 代碼已複製！
+    copyFailed: 複製代碼失敗。
+    instructionsTitle: 安裝指引
+    step1: 複製下方的追蹤代碼標籤。
+    step2: 將代碼貼至您網站 HTML 的 <head> 區塊中（或 <body> 結束標籤前）。
+    step3: 重新整理您的網站，訪問數據將在數秒內顯示於儀表盤中。
+    goToAnalytics: 前往分析儀表盤
+    goToSettings: 站點進階設定
+    siteIdLabel: 站點 ID
+    embedCodeLabel: HTML 嵌入代碼
   columns:
     name: 名稱
     domain: 域名

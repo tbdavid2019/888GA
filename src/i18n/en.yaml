@@ -2650,6 +2650,22 @@ adminSites:
   createFailed: Failed to create site.
   invalidInput: Please provide a valid site name and domain.
   open: Open analytics
+  snippet: Embed Code
+  settings: Site Settings
+  snippetDialog:
+    title: Tracking Embed Code
+    description: Add the script snippet below to your website HTML to start collecting analytics.
+    copy: Copy Snippet
+    copied: Snippet copied to clipboard!
+    copyFailed: Failed to copy snippet.
+    instructionsTitle: Quick Installation
+    step1: Copy the tracking script tag above.
+    step2: Paste it into the <head> section (or right before </body>) of your website HTML.
+    step3: Refresh your website. Real-time visits will show up on your dashboard within seconds.
+    goToAnalytics: Open Analytics Dashboard
+    goToSettings: Advanced Site Settings
+    siteIdLabel: Site ID
+    embedCodeLabel: HTML Embed Code
   columns:
     name: Name
     domain: Domain

@@ -135,7 +135,7 @@ export function registerTeamSiteManagementScenarios(context: E2eContext) {
     ).toHaveCount(1);
     await expect(page.locator("body")).toHaveCSS(
       "font-family",
-      /JetBrains Mono Variable/,
+      /(PingFang TC|-apple-system|Segoe UI|sans-serif|system-ui)/,
     );
     await expect
       .poll(() =>

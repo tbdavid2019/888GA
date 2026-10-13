@@ -74,7 +74,7 @@ function RootDocument() {
         <HeadContent />
         <ScriptOnce>{THEME_INIT_SCRIPT}</ScriptOnce>
       </head>
-      <body className="antialiased font-mono">
+      <body className="antialiased">
         <GlobalScrollbars>
           <ScriptOnce>{ESBUILD_NAME_HELPER_SCRIPT}</ScriptOnce>
           <LayerManagerProvider>

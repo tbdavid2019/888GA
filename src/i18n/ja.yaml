@@ -2558,6 +2558,22 @@ adminSites:
   createFailed: サイトを作成できません。
   invalidInput: 有効なサイト名とドメインを入力してください。
   open: アナリティクスを開く
+  snippet: 埋め込みコード
+  settings: サイト設定
+  snippetDialog:
+    title: トラッキング埋め込みコード
+    description: 以下のスクリプトをウェブサイトのHTMLに追加して、アクセス解析を開始します。
+    copy: コードをコピー
+    copied: クリップボードにコピーしました！
+    copyFailed: コードのコピーに失敗しました。
+    instructionsTitle: インストール手順
+    step1: 上記のトラッキングスクリプトタグをコピーします。
+    step2: ウェブサイトのHTMLの <head>（または </body> の直前）に貼り付けます。
+    step3: ウェブサイトを更新すると、数秒以内にダッシュボードへアクセスデータが表示されます。
+    goToAnalytics: アナリティクスを開く
+    goToSettings: サイト詳細設定
+    siteIdLabel: サイト ID
+    embedCodeLabel: HTML 埋め込みコード
   columns:
     name: 名前
     domain: ドメイン

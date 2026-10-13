@@ -2547,6 +2547,22 @@ adminSites:
   createFailed: 站点创建失败。
   invalidInput: 请填写有效的站点名称和域名。
   open: 打开分析
+  snippet: 嵌入代码
+  settings: 站点设置
+  snippetDialog:
+    title: 站点嵌入跟踪代码
+    description: 将下方代码加入您网站的 HTML 中即可开始跟踪分析数据。
+    copy: 复制嵌入代码
+    copied: 代码已复制！
+    copyFailed: 复制代码失败。
+    instructionsTitle: 安装指引
+    step1: 复制下方的跟踪代码标签。
+    step2: 将代码粘贴至您网站 HTML 的 <head> 区域中（或 <body> 结束标签前）。
+    step3: 刷新您的网站，访问数据将在数秒内显示于仪表盘中。
+    goToAnalytics: 前往分析仪表盘
+    goToSettings: 站点高级设置
+    siteIdLabel: 站点 ID
+    embedCodeLabel: HTML 嵌入代码
   columns:
     name: 名称
     domain: 域名

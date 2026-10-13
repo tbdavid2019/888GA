@@ -4,10 +4,13 @@
 @source "../";
 
 @theme inline {
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang TC",
+    "Hiragino Sans CNS", "Microsoft JhengHei", "Noto Sans TC", "PingFang SC",
+    "Microsoft YaHei", sans-serif;
   --font-mono:
     "JetBrains Mono Variable", "JetBrains Mono", "Cascadia Mono", Consolas,
-    "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", ui-monospace,
-    monospace;
+    ui-monospace, monospace;
 }
 
 @layer base {
@@ -24,10 +27,43 @@
     height: 0;
   }
 
+  html {
+    font-size: 15px;
+  }
+
   body {
-    font-family: var(--font-mono);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    letter-spacing: -0.011em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 }
+
+@layer utilities {
+  /* 提升側邊欄按鈕、表格與表單字級至舒適的中文字型標準 (~14px)，覆蓋 Tailwind text-xs */
+  [data-slot="sidebar-menu-button"],
+  [data-sidebar="menu-button"] {
+    font-size: 0.933rem !important;
+  }
+
+  table[data-slot="table"] {
+    font-size: 0.933rem !important;
+    line-height: 1.5;
+  }
+
+  table[data-slot="table"] th {
+    font-size: 0.867rem !important;
+    font-weight: 600;
+  }
+
+  table[data-slot="table"] td {
+    font-size: 0.933rem !important;
+  }
+}
+
 
 @media (prefers-reduced-motion: reduce) {
   body {
