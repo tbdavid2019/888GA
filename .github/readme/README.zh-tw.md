@@ -4,7 +4,7 @@
 > 隱私優先、無 Cookie、極速響應、專為繁體中文環境與個人站長深度定製。
 
 <!-- auto-readme-i18n-switcher start -->
-| 繁體中文 | [English](/.github/readme/README.en.md) | [日本語](/.github/readme/README.ja.md) | [简体中文](/.github/readme/README.zh.md) |
+| [English](/.github/readme/README.en.md) | [日本語](/.github/readme/README.ja.md) | 中文（台灣） | [中文](/.github/readme/README.zh.md) |
 <!-- auto-readme-i18n-switcher end -->
 
 [![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https%3A%2F%2Fgithub.com%2Ftbdavid2019%2FInsightFlare)

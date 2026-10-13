@@ -4,7 +4,7 @@
 > Privacy-friendly, cookie-free, ultra-fast, and thoughtfully optimized for personal webmasters and modern CJK typography.
 
 <!-- auto-readme-i18n-switcher start -->
-| [繁體中文](/README.md) | English | [日本語](/.github/readme/README.ja.md) | [简体中文](/.github/readme/README.zh.md) |
+| English | [日本語](/.github/readme/README.ja.md) | [中文（台灣）](/.github/readme/README.zh-tw.md) | [中文](/.github/readme/README.zh.md) |
 <!-- auto-readme-i18n-switcher end -->
 
 [![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https%3A%2F%2Fgithub.com%2Ftbdavid2019%2FInsightFlare)
