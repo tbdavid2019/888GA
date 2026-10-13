@@ -39,7 +39,7 @@ describe("release-index", () => {
 
       await expect(fetchReleaseIndex()).resolves.toEqual([release]);
       expect(fetchSpy).toHaveBeenCalledWith(
-        "https://raw.githubusercontent.com/RavelloH/InsightFlare/main/.github/releases/version.json",
+        "https://raw.githubusercontent.com/tbdavid2019/InsightFlare/main/.github/releases/version.json",
       );
     });
 
@@ -79,11 +79,11 @@ describe("release-index", () => {
 
       expect(fetchSpy).toHaveBeenNthCalledWith(
         1,
-        "https://raw.githubusercontent.com/RavelloH/InsightFlare/main/changelog/v1.2.3.md",
+        "https://raw.githubusercontent.com/tbdavid2019/InsightFlare/main/changelog/v1.2.3.md",
       );
       expect(fetchSpy).toHaveBeenNthCalledWith(
         2,
-        "https://raw.githubusercontent.com/RavelloH/InsightFlare/main/.github/releases/i18n/zh/v1.2.3.md",
+        "https://raw.githubusercontent.com/tbdavid2019/InsightFlare/main/.github/releases/i18n/zh/v1.2.3.md",
       );
     });
 
@@ -98,7 +98,7 @@ describe("release-index", () => {
       expect(fetchSpy).toHaveBeenCalledTimes(2);
       expect(fetchSpy).toHaveBeenNthCalledWith(
         2,
-        "https://raw.githubusercontent.com/RavelloH/InsightFlare/main/changelog/v1.2.3.md",
+        "https://raw.githubusercontent.com/tbdavid2019/InsightFlare/main/changelog/v1.2.3.md",
       );
     });
 

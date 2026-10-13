@@ -169,7 +169,7 @@ export function AdminSitesManagementClient({
               void handleCreateSite();
             }}
           >
-            <div className="flex items-center gap-2 text-xs text-muted-foreground md:col-span-2">
+            <div className="flex items-center gap-2 text-sm text-muted-foreground md:col-span-2">
               <span>{t.team}:</span>
               <span className="rounded border bg-muted/60 px-2 py-0.5 font-semibold text-foreground">
                 {activeTeam.name}
@@ -202,7 +202,7 @@ export function AdminSitesManagementClient({
               />
             </div>
             <div className="md:col-span-2">
-              <Button type="submit" disabled={submitting}>
+              <Button type="submit" size="default" disabled={submitting}>
                 <AutoTransition className="inline-flex items-center gap-[var(--button-content-gap)]">
                   {submitting ? (
                     <span
@@ -263,12 +263,12 @@ export function AdminSitesManagementClient({
                         `/${locale}/app/${activeTeam.slug}/${siteSlug(site)}`,
                       );
                     }}
-                    className="cursor-pointer text-left font-semibold transition-colors hover:text-primary hover:underline"
+                    className="cursor-pointer text-left text-base font-semibold transition-colors hover:text-primary hover:underline"
                   >
                     {site.name}
                   </button>
                 </TableCell>
-                <TableCell className="font-mono">
+                <TableCell className="font-mono text-sm">
                   <a
                     href={formatDomainHref(site.domain)}
                     target="_blank"
@@ -276,11 +276,11 @@ export function AdminSitesManagementClient({
                     className="inline-flex items-center gap-1 hover:text-primary hover:underline"
                   >
                     <span>{site.domain}</span>
-                    <RiExternalLinkLine className="size-3 text-muted-foreground" />
+                    <RiExternalLinkLine className="size-3.5 text-muted-foreground" />
                   </a>
                 </TableCell>
-                <TableCell className="font-mono">{siteSlug(site)}</TableCell>
-                <TableCell>
+                <TableCell className="font-mono text-sm">{siteSlug(site)}</TableCell>
+                <TableCell className="text-sm text-muted-foreground">
                   {shortDateTime(locale, site.createdAt, timeZone)}
                 </TableCell>
                 <TableCell className="text-right">

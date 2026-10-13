@@ -15,7 +15,7 @@ import { fileURLToPath } from "node:url";
 const SCRIPT_DIRECTORY = dirname(fileURLToPath(import.meta.url));
 export const REPOSITORY_ROOT = resolve(SCRIPT_DIRECTORY, "..");
 export const DEFAULT_REPOSITORY_URL =
-  "https://github.com/RavelloH/InsightFlare";
+  "https://github.com/tbdavid2019/InsightFlare";
 export const DEFAULT_OUTPUT_PATH = join(
   REPOSITORY_ROOT,
   ".github",

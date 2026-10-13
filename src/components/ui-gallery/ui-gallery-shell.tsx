@@ -185,7 +185,7 @@ export function UiGalleryShell() {
         <Sidebar variant="inset" collapsible="icon">
           <SidebarHeader>
             <AppSidebarBrand
-              href="https://github.com/RavelloH/InsightFlare"
+              href="https://github.com/tbdavid2019/InsightFlare"
               target="_blank"
               rel="noopener noreferrer"
               appName="InsightFlare"

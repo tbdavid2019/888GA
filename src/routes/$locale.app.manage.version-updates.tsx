@@ -28,7 +28,7 @@ import {
 } from "@/lib/release-index";
 import Link from "@/lib/router";
 import { cn } from "@/lib/utils";
-const REPO_RELEASES_URL = "https://github.com/RavelloH/InsightFlare/releases";
+const REPO_RELEASES_URL = "https://github.com/tbdavid2019/InsightFlare/releases";
 const CURRENT_VERSION = import.meta.env.VITE_APP_VERSION || "0.0.0";
 const CURRENT_COMMIT = import.meta.env.VITE_COMMIT_SHA || null;
 function formatCommit(hash: string | null | undefined): string {

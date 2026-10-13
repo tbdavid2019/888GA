@@ -1,5 +1,5 @@
 const DEFAULT_GITHUB_RELEASES_RAW_BASE =
-  "https://raw.githubusercontent.com/RavelloH/InsightFlare/main";
+  "https://raw.githubusercontent.com/tbdavid2019/InsightFlare/main";
 const RELEASE_INDEX_PATH = ".github/releases/version.json";
 
 const GITHUB_RELEASES_RAW_BASE = (

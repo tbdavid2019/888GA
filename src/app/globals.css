@@ -11,6 +11,22 @@
   --font-mono:
     "JetBrains Mono Variable", "JetBrains Mono", "Cascadia Mono", Consolas,
     ui-monospace, monospace;
+
+  /* 中文排版專用字級尺度：避免細小文字導致筆劃擠壓、模糊 */
+  --text-2xs: 0.75rem;
+  --text-2xs--line-height: 1rem;
+  --text-xs: 0.8125rem;
+  --text-xs--line-height: 1.25rem;
+  --text-sm: 0.90625rem;
+  --text-sm--line-height: 1.375rem;
+  --text-base: 1rem;
+  --text-base--line-height: 1.6rem;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.75rem;
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 1.75rem;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 2rem;
 }
 
 @layer base {
@@ -28,7 +44,7 @@
   }
 
   html {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   body {
@@ -43,24 +59,115 @@
 }
 
 @layer utilities {
-  /* 提升側邊欄按鈕、表格與表單字級至舒適的中文字型標準 (~14px)，覆蓋 Tailwind text-xs */
-  [data-slot="sidebar-menu-button"],
-  [data-sidebar="menu-button"] {
-    font-size: 0.933rem !important;
+  /* 全域極小字元防護：避免小於 13px 的字體造成中文字筆劃辨識困難，排除等寬數值與熱力圖/表格專用緊湊數字 */
+  [class*="text-[10px]"]:not(.font-mono):not([class*="tabular-nums"]),
+  [class*="text-[11px]"]:not(.font-mono):not([class*="tabular-nums"]),
+  [class*="text-[12px]"]:not(.font-mono):not([class*="tabular-nums"]) {
+    font-size: 0.8125rem !important;
   }
 
+  /* 側邊欄導航 (Sidebar) */
+  [data-slot="sidebar-menu-button"],
+  [data-sidebar="menu-button"],
+  [data-slot="sidebar-menu-sub-button"],
+  [data-sidebar="menu-sub-button"] {
+    font-size: 0.9375rem !important;
+    line-height: 1.4 !important;
+  }
+
+  [data-slot="sidebar-menu-button"] span,
+  [data-sidebar="menu-button"] span,
+  [data-slot="sidebar-menu-sub-button"] span,
+  [data-sidebar="menu-sub-button"] span {
+    font-size: 0.9375rem !important;
+  }
+
+  [data-slot="sidebar-group-label"],
+  [data-sidebar="group-label"] {
+    font-size: 0.8125rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.04em !important;
+  }
+
+  /* 下拉選單 (Select) 與團隊選擇器 */
+  [data-slot="select-trigger"],
+  [data-slot="select-item"] {
+    font-size: 0.90625rem !important;
+  }
+
+  [data-slot="dropdown-menu-item"],
+  [data-slot="dropdown-menu-checkbox-item"],
+  [data-slot="dropdown-menu-radio-item"] {
+    font-size: 0.90625rem !important;
+  }
+
+  /* 表單元件 (Forms: Label, Input) */
+  [data-slot="label"] {
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+  }
+
+  [data-slot="input"],
+  input[data-slot="input"] {
+    font-size: 0.90625rem !important;
+  }
+
+  /* 按鈕 (Buttons) - 尊重 xs、sm 等精簡按鈕尺寸與顯式指定 class */
+  [data-slot="button"][data-size="xs"],
+  [data-slot="button"][data-size="icon-xs"],
+  [data-slot="button"][data-size="sm"],
+  [data-slot="button"][data-size="icon-sm"] {
+    font-size: 0.8125rem !important;
+  }
+
+  [data-slot="button"][data-size="lg"],
+  [data-slot="button"][data-size="icon-lg"] {
+    font-size: 0.9375rem !important;
+  }
+
+  [data-slot="button"]:not([data-size="xs"]):not([data-size="icon-xs"]):not([data-size="sm"]):not([data-size="icon-sm"]):not([data-size="lg"]):not([data-size="icon-lg"]):not([class*="text-"]) {
+    font-size: 0.875rem !important;
+  }
+
+  /* 卡片元件 (Cards) - 若元素無顯式指定 text-* 尺寸，才套用預設基線 */
+  [data-slot="card"] {
+    font-size: 0.9375rem !important;
+  }
+
+  [data-slot="card-title"]:not([class*="text-"]) {
+    font-size: 1.0625rem !important;
+    font-weight: 600 !important;
+  }
+
+  [data-slot="card-description"]:not([class*="text-"]) {
+    font-size: 0.875rem !important;
+    line-height: 1.5 !important;
+  }
+
+  /* 表格元件 (Tables) */
   table[data-slot="table"] {
-    font-size: 0.933rem !important;
-    line-height: 1.5;
+    font-size: 0.9375rem !important;
+    line-height: 1.5 !important;
   }
 
   table[data-slot="table"] th {
-    font-size: 0.867rem !important;
-    font-weight: 600;
+    font-size: 0.875rem !important;
+    font-weight: 600 !important;
   }
 
   table[data-slot="table"] td {
-    font-size: 0.933rem !important;
+    font-size: 0.9375rem !important;
+  }
+
+  /* 對話框 / 彈跳視窗 (Dialog / Modal) */
+  [data-slot="dialog-title"] {
+    font-size: 1.125rem !important;
+    font-weight: 600 !important;
+  }
+
+  [data-slot="dialog-description"] {
+    font-size: 0.875rem !important;
+    line-height: 1.5 !important;
   }
 }
 

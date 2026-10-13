@@ -144,7 +144,7 @@ const SidebarSiteRow = memo(function SidebarSiteRow({
   ]);
 
   const siteLink = (
-    <SidebarMenuButton asChild isActive={isActive} className="h-8 rounded-none">
+    <SidebarMenuButton asChild isActive={isActive} className="h-9 rounded-none">
       <Link href={buildSitePath(locale, teamSlug, site.slug, currentSection)}>
         <SiteBrandIcon
           siteId={site.id}
@@ -155,7 +155,7 @@ const SidebarSiteRow = memo(function SidebarSiteRow({
         />
         <div className={SITE_ROW_DETAIL_CLASS}>
           <div className="min-w-0">
-            <span className="block truncate text-xs">{site.name}</span>
+            <span className="block truncate text-sm font-medium">{site.name}</span>
           </div>
           <div className="min-w-0">
             <AutoTransition

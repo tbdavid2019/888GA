@@ -101,7 +101,7 @@ export function ShareHeader({
             <BreadcrumbItem className="shrink-0">
               <BreadcrumbLink asChild>
                 <Link
-                  href="https://github.com/RavelloH/InsightFlare"
+                  href="https://github.com/tbdavid2019/InsightFlare"
                   target="_blank"
                   rel="noreferrer"
                   className="flex items-center gap-2 text-foreground transition-colors hover:text-primary"

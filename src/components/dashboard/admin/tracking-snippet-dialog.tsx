@@ -111,58 +111,59 @@ export function TrackingSnippetDialog({
       <ResponsiveDialogContent desktopClassName="max-w-xl">
         <ResponsiveDialogHeader>
           <ResponsiveDialogTitle
+            className="text-lg font-semibold"
             icon={isNewlyCreated ? RiSparklingLine : RiCodeSSlashLine}
           >
             {isNewlyCreated
               ? `${t.createSuccess} - ${dialogText.title}`
               : dialogText.title}
           </ResponsiveDialogTitle>
-          <ResponsiveDialogDescription>
+          <ResponsiveDialogDescription className="text-sm text-muted-foreground leading-relaxed">
             {dialogText.description}
           </ResponsiveDialogDescription>
         </ResponsiveDialogHeader>
 
         <ResponsiveDialogBody className="space-y-4">
           {/* 站點基本資訊卡 */}
-          <div className="flex flex-wrap items-center justify-between gap-2 rounded border bg-muted/40 px-3.5 py-2.5 text-sm">
-            <div>
-              <span className="font-semibold text-foreground">{site.name}</span>
-              <span className="ml-2 font-mono text-xs text-muted-foreground">
+          <div className="flex flex-wrap items-center justify-between gap-3 rounded border bg-muted/40 px-4 py-3 text-sm">
+            <div className="flex items-center gap-2">
+              <span className="text-base font-semibold text-foreground">{site.name}</span>
+              <span className="font-mono text-sm text-muted-foreground">
                 ({site.domain})
               </span>
             </div>
-            <div className="font-mono text-xs text-muted-foreground">
+            <div className="font-mono text-sm text-muted-foreground">
               {dialogText.siteIdLabel || "Site ID"}:{" "}
-              <code className="rounded bg-background px-1.5 py-0.5 font-bold text-foreground">
+              <code className="rounded bg-background px-2 py-0.5 font-bold text-foreground">
                 {site.id}
               </code>
             </div>
           </div>
 
           {/* 代碼展示區塊 */}
-          <div className="relative overflow-hidden rounded-lg border bg-zinc-950 p-3.5 font-mono text-xs text-zinc-100 dark:bg-zinc-900/90">
+          <div className="relative overflow-hidden rounded-lg border bg-zinc-950 p-4 font-mono text-sm text-zinc-100 dark:bg-zinc-900/90">
             <div className="mb-2 flex items-center justify-between border-b border-zinc-800 pb-2 text-zinc-400">
-              <span className="text-[11px] font-medium tracking-wide uppercase">
+              <span className="text-xs font-semibold tracking-wider uppercase text-zinc-300">
                 {dialogText.embedCodeLabel || "HTML Embed Code"}
               </span>
               <Button
                 type="button"
                 variant="ghost"
                 size="sm"
-                className="h-7 gap-1 px-2 text-xs text-zinc-300 hover:bg-zinc-800 hover:text-white"
+                className="h-8 gap-1.5 px-2.5 text-xs font-medium text-zinc-300 hover:bg-zinc-800 hover:text-white"
                 onClick={handleCopy}
               >
                 {copied ? (
                   <>
-                    <RiCheckLine className="size-3.5 text-emerald-400" />
-                    <span className="text-emerald-400">
+                    <RiCheckLine className="size-4 text-emerald-400" />
+                    <span className="font-medium text-emerald-400">
                       {dialogText.copied}
                     </span>
                   </>
                 ) : (
                   <>
-                    <RiFileCopyLine className="size-3.5" />
-                    <span>{dialogText.copy}</span>
+                    <RiFileCopyLine className="size-4" />
+                    <span className="font-medium">{dialogText.copy}</span>
                   </>
                 )}
               </Button>
@@ -170,17 +171,18 @@ export function TrackingSnippetDialog({
             <div className="overflow-x-auto py-1 text-sm leading-relaxed">
               <HighlightedCode
                 source={scriptSnippet}
-                className="whitespace-pre font-mono text-zinc-200"
+                className="whitespace-pre font-mono text-sm text-zinc-200"
               />
             </div>
           </div>
 
           {/* 安裝指引 3 步驟 */}
-          <div className="space-y-2 rounded-lg border border-border/80 bg-background/50 p-3.5 text-xs text-muted-foreground">
-            <h4 className="font-semibold text-foreground">
-              💡 {dialogText.instructionsTitle}
+          <div className="space-y-2.5 rounded-lg border border-border/80 bg-background/50 p-4 text-sm text-muted-foreground">
+            <h4 className="flex items-center gap-1.5 text-sm font-semibold text-foreground">
+              <span>💡</span>
+              <span>{dialogText.instructionsTitle}</span>
             </h4>
-            <ol className="grid list-decimal gap-1.5 pl-4 text-xs/relaxed">
+            <ol className="grid list-decimal gap-2 pl-4 text-sm leading-relaxed text-foreground/85">
               <li>{dialogText.step1}</li>
               <li>{dialogText.step2}</li>
               <li>{dialogText.step3}</li>
@@ -188,9 +190,9 @@ export function TrackingSnippetDialog({
           </div>
         </ResponsiveDialogBody>
 
-        <ResponsiveDialogFooter className="flex-col-reverse sm:flex-row sm:justify-between gap-2">
+        <ResponsiveDialogFooter className="flex-col-reverse sm:flex-row sm:justify-between gap-2 pt-2">
           <ResponsiveDialogClose asChild>
-            <Button type="button" variant="outline" size="sm">
+            <Button type="button" variant="outline" size="default">
               {messages.common.close || "Close"}
             </Button>
           </ResponsiveDialogClose>
@@ -199,7 +201,7 @@ export function TrackingSnippetDialog({
             <Button
               type="button"
               variant="outline"
-              size="sm"
+              size="default"
               data-testid="snippet-dialog-settings-btn"
               onClick={() => {
                 onOpenChange(false);
@@ -212,7 +214,7 @@ export function TrackingSnippetDialog({
 
             <Button
               type="button"
-              size="sm"
+              size="default"
               data-testid="snippet-dialog-analytics-btn"
               onClick={() => {
                 onOpenChange(false);
