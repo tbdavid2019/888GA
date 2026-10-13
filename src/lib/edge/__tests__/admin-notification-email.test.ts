@@ -354,7 +354,7 @@ describe("admin notification email handlers", () => {
     const encrypted = await encryptNotificationSecret(env, "re_test_secret");
     const select = statement({
       first: row({
-      fromName: "888GA",
+        fromName: "888GA",
         fromEmail: "noreply@example.test",
         resend: {
           apiKeyEncrypted: encrypted,

@@ -39,10 +39,7 @@ function Page() {
       <Card className="w-full max-w-md">
         <CardHeader className="space-y-2">
           <div className="flex w-full items-center justify-center py-8 text-4xl text-primary">
-            <Link
-              href="https://github.com/tbdavid2019/888GA"
-              target="_blank"
-            >
+            <Link href="https://github.com/tbdavid2019/888GA" target="_blank">
               {t.appName}
             </Link>
           </div>

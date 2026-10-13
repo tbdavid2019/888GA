@@ -291,9 +291,7 @@ describe("Tracker Browser SDK Integration Suite", () => {
       delete (window as any).__insightflare_tracker_v6__;
       delete (window as any).insightflare;
       setRuntimeConfig({ ignoreDoNotTrack: false });
-      expect(() => new Function(sdk)()).toThrow(
-        "888GA: Do Not Track enabled",
-      );
+      expect(() => new Function(sdk)()).toThrow("888GA: Do Not Track enabled");
     }
   });
 
@@ -439,9 +437,7 @@ describe("Tracker Browser SDK Integration Suite", () => {
 
     // Re-import to simulate duplicate script tag — install key is still on window
     vi.resetModules();
-    await expect(import("../sdk")).rejects.toThrow(
-      "888GA: already installed",
-    );
+    await expect(import("../sdk")).rejects.toThrow("888GA: already installed");
   });
 
   it("should expose stable public API surface on window install key", async () => {

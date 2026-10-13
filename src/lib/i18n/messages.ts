@@ -4858,8 +4858,7 @@ const enMessages = {
   runtimeConfigError: {
     title: "Runtime configuration required",
     eyebrow: "Deployment paused",
-    heading:
-      "888GA needs one runtime secret before the dashboard can load.",
+    heading: "888GA needs one runtime secret before the dashboard can load.",
     description:
       "The app has started, but the current runtime environment could not read the required root secret, so dashboard access is temporarily blocked.",
     requiredTitle: "Required runtime secret",
@@ -5812,8 +5811,7 @@ const enMessages = {
   },
   systemSettings: {
     title: "System Settings",
-    subtitle:
-      "Manage instance-wide configuration for this 888GA deployment.",
+    subtitle: "Manage instance-wide configuration for this 888GA deployment.",
     guide: "Guide",
     analyticsEngineTitle: "Analytics Engine",
     analyticsEngineDescription:

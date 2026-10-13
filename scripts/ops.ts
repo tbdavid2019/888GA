@@ -106,9 +106,7 @@ async function main(): Promise<void> {
     ),
   );
   runtime.logSummary(stages, startedAt);
-  runtime.rlog.success(
-    "888GA operations command completed successfully.",
-  );
+  runtime.rlog.success("888GA operations command completed successfully.");
 }
 
 main().catch((error: unknown) => {
