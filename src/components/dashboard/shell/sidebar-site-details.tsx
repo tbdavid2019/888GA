@@ -155,7 +155,9 @@ const SidebarSiteRow = memo(function SidebarSiteRow({
         />
         <div className={SITE_ROW_DETAIL_CLASS}>
           <div className="min-w-0">
-            <span className="block truncate text-sm font-medium">{site.name}</span>
+            <span className="block truncate text-sm font-medium">
+              {site.name}
+            </span>
           </div>
           <div className="min-w-0">
             <AutoTransition

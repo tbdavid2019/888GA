@@ -104,7 +104,9 @@ export async function createSiteThroughUi(
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
   const dialog = page.getByRole("dialog");
-  const settingsBtn = dialog.locator('[data-testid="snippet-dialog-settings-btn"]');
+  const settingsBtn = dialog.locator(
+    '[data-testid="snippet-dialog-settings-btn"]',
+  );
   await expect(settingsBtn).toBeVisible({ timeout: 10000 });
   await settingsBtn.click();
   await expect(page).toHaveURL(

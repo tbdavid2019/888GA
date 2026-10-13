@@ -127,7 +127,9 @@ export function TrackingSnippetDialog({
           {/* 站點基本資訊卡 */}
           <div className="flex flex-wrap items-center justify-between gap-3 rounded border bg-muted/40 px-4 py-3 text-sm">
             <div className="flex items-center gap-2">
-              <span className="text-base font-semibold text-foreground">{site.name}</span>
+              <span className="text-base font-semibold text-foreground">
+                {site.name}
+              </span>
               <span className="font-mono text-sm text-muted-foreground">
                 ({site.domain})
               </span>

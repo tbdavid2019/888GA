@@ -101,5 +101,6 @@ describe("dashboard route context cache", () => {
       .mockResolvedValueOnce("user B");
     expect(await loadDashboardRouteContext(["root"], read)).toBe("user A");
     expect(await loadDashboardRouteContext(["root"], read)).toBe("user B");
+    seedDashboardRouteContext(["root"], "SSR does not seed the browser cache");
   });
 });

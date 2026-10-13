@@ -279,7 +279,9 @@ export function AdminSitesManagementClient({
                     <RiExternalLinkLine className="size-3.5 text-muted-foreground" />
                   </a>
                 </TableCell>
-                <TableCell className="font-mono text-sm">{siteSlug(site)}</TableCell>
+                <TableCell className="font-mono text-sm">
+                  {siteSlug(site)}
+                </TableCell>
                 <TableCell className="text-sm text-muted-foreground">
                   {shortDateTime(locale, site.createdAt, timeZone)}
                 </TableCell>

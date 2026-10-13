@@ -8767,7 +8767,8 @@ const zhMessages = {
       copyFailed: "复制代码失败。",
       instructionsTitle: "安装指引",
       step1: "复制下方的跟踪代码标签。",
-      step2: "将代码粘贴至您网站 HTML 的 <head> 区域中（或 <body> 结束标签前）。",
+      step2:
+        "将代码粘贴至您网站 HTML 的 <head> 区域中（或 <body> 结束标签前）。",
       step3: "刷新您的网站，访问数据将在数秒内显示于仪表盘中。",
       goToAnalytics: "前往分析仪表盘",
       goToSettings: "站点高级设置",
