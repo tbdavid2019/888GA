@@ -78,7 +78,7 @@ export function parseCommonOptions(argv: string[]): CommonOptions {
     database:
       readOption(argv, "database") ??
       process.env.INSIGHTFLARE_D1_DATABASE ??
-      "insightflare",
+      "insightflare-db",
     dryRun: hasFlag(argv, "dry-run"),
     envName: readOption(argv, "env") ?? process.env.INSIGHTFLARE_ENV,
     skipPrebuild: hasFlag(argv, "skip-prebuild"),
