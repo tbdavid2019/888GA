@@ -188,7 +188,7 @@ export function UiGalleryShell() {
               href="https://github.com/tbdavid2019/InsightFlare"
               target="_blank"
               rel="noopener noreferrer"
-              appName="InsightFlare"
+              appName="888GA"
               suffix="UI"
             />
             <label className="group-data-[collapsible=icon]:hidden relative block w-full pb-2">

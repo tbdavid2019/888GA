@@ -46,8 +46,8 @@ function scrollPageToTop(behavior: ScrollBehavior) {
 }
 
 export function PageTransition({ children }: PageTransitionProps) {
-  const EXIT_DURATION_MS = 280;
-  const ENTER_DURATION_MS = 320;
+  const EXIT_DURATION_MS = 60;
+  const ENTER_DURATION_MS = 140;
   const resolvedLocation = useRouterState({
     select: (state) => state.resolvedLocation ?? state.location,
   });
@@ -120,10 +120,8 @@ export function PageTransition({ children }: PageTransitionProps) {
       }
       timeoutRef.current = setTimeout(() => {
         timeoutRef.current = null;
-        const next = pendingRef.current;
-        if (!next) return;
         navigationStartedRef.current = true;
-        performNavigation(next);
+        performNavigation(request);
       }, EXIT_DURATION_MS);
     },
     [performNavigation],

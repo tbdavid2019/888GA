@@ -477,7 +477,7 @@ export function DashboardShell({
                 href="https://github.com/tbdavid2019/InsightFlare"
                 target="_blank"
                 appName={messages.appName}
-                suffix={import.meta.env.VITE_DEMO_MODE === "1" ? "Demo" : "v1"}
+                suffix={import.meta.env.VITE_DEMO_MODE === "1" ? "Demo" : ""}
               />
             </SidebarHeader>
 

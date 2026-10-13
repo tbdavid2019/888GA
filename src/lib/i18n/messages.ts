@@ -2860,7 +2860,7 @@ export interface AppMessages {
 }
 
 const enMessages = {
-  appName: "InsightFlare",
+  appName: "888GA",
   uiGallery: {
     searchLabel: "Search UI components",
     searchPlaceholder: "Search components",
@@ -6057,7 +6057,7 @@ const enMessages = {
 } as AppMessages;
 
 const zhMessages = {
-  appName: "InsightFlare",
+  appName: "888GA",
   uiGallery: {
     searchLabel: "搜索 UI 组件",
     searchPlaceholder: "搜索组件",
@@ -9161,7 +9161,7 @@ const zhMessages = {
 } as AppMessages;
 
 const zhTwMessages = {
-  appName: "InsightFlare",
+  appName: "888GA",
   uiGallery: {
     searchLabel: "搜尋 UI 元件",
     searchPlaceholder: "搜尋元件",
@@ -12265,7 +12265,7 @@ const zhTwMessages = {
 } as AppMessages;
 
 const jaMessages = {
-  appName: "InsightFlare",
+  appName: "888GA",
   uiGallery: {
     searchLabel: "UI コンポーネントを検索",
     searchPlaceholder: "コンポーネントを検索",

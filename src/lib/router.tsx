@@ -50,6 +50,18 @@ const Link = forwardRef<HTMLAnchorElement, LinkProps>(function Link(
       href={href}
       target={target}
       data-skip-page-transition={skipPageTransition || undefined}
+      onMouseEnter={(event) => {
+        props.onMouseEnter?.(event);
+        if (isInternalHref(href) && target !== "_blank") {
+          void router.preload(href);
+        }
+      }}
+      onTouchStart={(event) => {
+        props.onTouchStart?.(event);
+        if (isInternalHref(href) && target !== "_blank") {
+          void router.preload(href);
+        }
+      }}
       onClick={(event) => {
         onClick?.(event);
         if (
