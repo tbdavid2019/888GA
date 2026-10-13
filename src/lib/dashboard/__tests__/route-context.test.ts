@@ -95,6 +95,8 @@ describe("dashboard route context cache", () => {
 
   it("reads each SSR request independently", async () => {
     vi.stubGlobal("window", undefined);
+    const requestQueryClient = getQueryClient();
+    expect(getQueryClient()).not.toBe(requestQueryClient);
     const read = vi
       .fn()
       .mockResolvedValueOnce("user A")
