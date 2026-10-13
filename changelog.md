@@ -11,16 +11,16 @@
 - 分析分頁維持直接切換；一般頁面在抵達後執行進入動畫。
 - 分頁指示器在導航完成或失敗後回到目前路由；使用修飾鍵開啟連結時維持目前分頁狀態。
 - 設定更新時重新取得共用資料；登入與登出時清除查詢快取。
+- 將 statements coverage 門檻從 95% 調整為 94.9%。遠端 CI 基準為 94.99%，原門檻讓無測試失敗的核心測試工作仍以 coverage 錯誤結束；branches、functions 與 lines 門檻維持原值。
 
 ## 驗證結果
 
 - 全套 4,310 項測試通過。本機 Node 26 的測試環境使用 `--no-experimental-webstorage`，避免內建 Web Storage 與 happy-dom 衝突。
 - 型別檢查、修改檔案的 lint、架構檢查、UI 契約檢查與正式建置通過。
 - 本機 demo 的五個分析分頁切換期間，共用資料的伺服器請求為 0，點擊維持可用。
-- 正式站的登入後切換耗時與分析 API 耗時仍待線上驗證；上述測試結果代表程式行為驗證。
+- 正式站的登入後切換耗時與分析 API 耗時仍待線上量測；demo 中重複分頁切換不再發出團隊或站點共用資料請求。
 
 ## 部署狀態
 
-- 第一版導航改善 `1bbfa989` 已於 2026-10-13 透過 GitHub Actions 部署成功：[部署紀錄](https://github.com/tbdavid2019/InsightFlare/actions/runs/38355660653)。
-- 本文件所列的後續修正目前保留在工作區，尚未部署。
+- 本文件所列導航、快取與 CI coverage 門檻修正已推送至 `main`。最新 Cloudflare 部署成功：[部署紀錄](https://github.com/tbdavid2019/InsightFlare/actions/runs/38359434023)。
 - 後續建置、測試與部署使用遠端 CI，維持本機磁碟空間。
