@@ -349,13 +349,13 @@ export const AnalyticsTabs = memo(function AnalyticsTabs({
                 }}
                 href={hrefForItem(item)}
                 className={cn(
-                  "relative inline-flex items-center gap-1.5 px-2 py-3 text-xs whitespace-nowrap transition-colors",
+                  "relative inline-flex items-center gap-2 px-2.5 py-3 text-sm font-medium whitespace-nowrap transition-colors",
                   isActive
-                    ? "text-primary"
+                    ? "font-semibold text-primary"
                     : "text-muted-foreground hover:text-foreground",
                 )}
               >
-                <AnalyticsIcon className="size-3.5" />
+                <AnalyticsIcon className="size-4" />
                 <span>{item.label}</span>
               </Link>
             );
@@ -363,7 +363,7 @@ export const AnalyticsTabs = memo(function AnalyticsTabs({
 
           <motion.div
             aria-hidden
-            className="pointer-events-none absolute bottom-0 left-0 h-0.5 bg-primary"
+            className="pointer-events-none absolute bottom-0 left-0 h-[2.5px] bg-primary"
             initial={false}
             animate={{
               x: indicatorState.x,

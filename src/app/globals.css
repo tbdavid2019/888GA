@@ -114,10 +114,13 @@
 
   /* 按鈕 (Buttons) - 尊重 xs、sm 等精簡按鈕尺寸與顯式指定 class */
   [data-slot="button"][data-size="xs"],
-  [data-slot="button"][data-size="icon-xs"],
+  [data-slot="button"][data-size="icon-xs"] {
+    font-size: 0.8125rem !important;
+  }
+
   [data-slot="button"][data-size="sm"],
   [data-slot="button"][data-size="icon-sm"] {
-    font-size: 0.8125rem !important;
+    font-size: 0.875rem !important;
   }
 
   [data-slot="button"][data-size="lg"],
@@ -185,20 +188,17 @@
 }
 
 [data-page-transition] {
-  --page-transition-enter-duration: 320ms;
-  --page-transition-exit-duration: 280ms;
+  --page-transition-enter-duration: 180ms;
   min-height: 100%;
-  will-change: opacity, transform;
 }
 
 [data-page-transition][data-transition="enter"] {
   animation: page-transition-enter var(--page-transition-enter-duration)
-    cubic-bezier(0.22, 1, 0.36, 1) both;
+    cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 [data-page-transition][data-transition="exit"] {
-  animation: page-transition-exit var(--page-transition-exit-duration)
-    cubic-bezier(0.4, 0, 1, 1) both;
+  /* 避免長時間白屏：退出過渡不強制降為 0 透明度，僅阻擋點擊 */
   pointer-events: none;
 }
 
@@ -220,22 +220,11 @@
 
 @keyframes page-transition-enter {
   from {
-    opacity: 0;
-    transform: translateY(20px);
+    opacity: 0.6;
+    transform: translateY(4px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes page-transition-exit {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(28px);
   }
 }
