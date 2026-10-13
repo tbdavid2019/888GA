@@ -150,6 +150,9 @@ export const AnalyticsTabs = memo(function AnalyticsTabs({
     visible: false,
   });
 
+  const [optimisticActiveKey, setOptimisticActiveKey] =
+    useState<AnalyticsTabKey | null>(null);
+
   const pathActiveKey = useMemo(() => {
     const activeItem = items.find((item) =>
       isTabActive(item, normalizedPathname, searchParams),
@@ -157,7 +160,11 @@ export const AnalyticsTabs = memo(function AnalyticsTabs({
     return activeItem?.key ?? items[0]?.key ?? null;
   }, [items, normalizedPathname, searchParams]);
 
-  const resolvedActiveKey = pathActiveKey;
+  useEffect(() => {
+    setOptimisticActiveKey(null);
+  }, [normalizedPathname]);
+
+  const resolvedActiveKey = optimisticActiveKey ?? pathActiveKey;
   const hrefForItem = useCallback(
     (item: AnalyticsTabItem) => {
       const itemPath = normalizePathname(item.href.split("?")[0] || item.href);
@@ -340,6 +347,7 @@ export const AnalyticsTabs = memo(function AnalyticsTabs({
             return (
               <Link
                 key={item.key}
+                data-skip-page-transition
                 ref={(node) => {
                   if (node) {
                     linkRefs.current.set(item.key, node);
@@ -348,6 +356,9 @@ export const AnalyticsTabs = memo(function AnalyticsTabs({
                   }
                 }}
                 href={hrefForItem(item)}
+                onClick={() => {
+                  setOptimisticActiveKey(item.key);
+                }}
                 className={cn(
                   "relative inline-flex items-center gap-2 px-2.5 py-3 text-sm font-medium whitespace-nowrap transition-colors",
                   isActive

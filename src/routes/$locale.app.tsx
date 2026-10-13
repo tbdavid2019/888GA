@@ -12,12 +12,23 @@ import {
 import type { DashboardTeamContext } from "@/lib/dashboard/server";
 import { buildManagementSections } from "@/lib/dashboard/team-sections";
 import { usePathname } from "@/lib/router";
+let clientRootCache: {
+  dashboardRoot: unknown;
+  initialDashboardWindow: unknown;
+} | null = null;
+
 export const Route = createFileRoute("/$locale/app")({
   beforeLoad: async () => {
+    if (typeof window !== "undefined" && clientRootCache) {
+      return clientRootCache;
+    }
     const [dashboardRoot, initialDashboardWindow] = await Promise.all([
       loadDashboardRoot(),
       loadDashboardInitialWindow(),
     ]);
+    if (typeof window !== "undefined") {
+      clientRootCache = { dashboardRoot, initialDashboardWindow };
+    }
     return { dashboardRoot, initialDashboardWindow };
   },
   component: AppLayout,
