@@ -107,13 +107,13 @@ async function main(): Promise<void> {
   );
   runtime.logSummary(stages, startedAt);
   runtime.rlog.success(
-    "InsightFlare operations command completed successfully.",
+    "888GA operations command completed successfully.",
   );
 }
 
 main().catch((error: unknown) => {
   runtime.rlog.log();
-  runtime.rlog.error("InsightFlare operations command failed");
+  runtime.rlog.error("888GA operations command failed");
   runtime.rlog.error(error instanceof Error ? error.message : String(error));
   runtime.rlog.error(`Full log: ${runtime.logFilePath}`);
   process.exitCode = 1;

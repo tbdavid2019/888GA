@@ -2,13 +2,13 @@ appName: 888GA
 uiGallery:
   searchLabel: Search UI components
   searchPlaceholder: Search components
-  backToApp: Back to InsightFlare
+  backToApp: Back to 888GA
   noSearchResults: No components match this search.
   toggleNavigation: Toggle gallery navigation
   library: UI Library
   componentsCount: "{count} components"
   statesCount: "{count} states"
-  designSystem: InsightFlare design system
+  designSystem: 888GA design system
   pageTitle: UI Components
   catalogSummary: "{components} components · {states} prop values"
   categories:
@@ -1851,7 +1851,7 @@ notificationCenter:
   detailFields: {}
 notificationEmail:
   common:
-    brand: InsightFlare
+    brand: 888GA
     date: Date
     coreMetrics: Core metrics
     topPages: Top pages
@@ -1874,8 +1874,8 @@ notificationEmail:
     never: Never
     noPageData: No page data yet.
     noReferrerData: No referrer data yet.
-    footer: This email was sent by the InsightFlare notification system.
-    fallbackSubject: InsightFlare notification
+    footer: This email was sent by the 888GA notification system.
+    fallbackSubject: 888GA notification
     trackingHint: Check whether the tracking script is installed correctly or
       whether the site still has traffic.
     severity:
@@ -1884,11 +1884,11 @@ notificationEmail:
       warning: Warning
       critical: Critical
   test:
-    subject: InsightFlare notification test
-    title: InsightFlare notification test
-    summary: This is a test notification from InsightFlare.
+    subject: 888GA notification test
+    title: 888GA notification test
+    summary: This is a test notification from 888GA.
     body:
-      This is a test notification from InsightFlare. If email is configured and
+      This is a test notification from 888GA. If email is configured and
       enabled, it also verifies Resend delivery.
   report:
     subject: "{site} {periodLabel} traffic report"
@@ -1929,7 +1929,7 @@ notificationEmail:
 runtimeConfigError:
   title: Runtime configuration required
   eyebrow: Deployment paused
-  heading: InsightFlare needs one runtime secret before the dashboard can load.
+  heading: 888GA needs one runtime secret before the dashboard can load.
   description:
     The app has started, but the current runtime environment could not
     read the required root secret, so dashboard access is temporarily blocked.
@@ -1948,7 +1948,7 @@ runtimeConfigError:
   homeLabel: Retry dashboard
 login:
   title: Sign in
-  subtitle: Use your InsightFlare account.
+  subtitle: Use your 888GA account.
   username: Username or Email
   password: Password
   signIn: Sign in
@@ -2004,7 +2004,7 @@ errorPage:
   notFoundDescription: The address may be incorrect, or the page may have moved.
   errorEyebrow: Application error
   errorTitle: Something went wrong
-  errorDescription: InsightFlare couldn't complete this request. The diagnostic
+  errorDescription: 888GA couldn't complete this request. The diagnostic
     details below can help us investigate.
   statusLabel: Status
   reasonLabel: Reason
@@ -2478,7 +2478,7 @@ managementNav:
   systemSettings: System Settings
 managementPages:
   versionUpdates:
-    subtitle: Review published InsightFlare releases and the running build.
+    subtitle: Review published 888GA releases and the running build.
     empty: No version update records yet.
     currentVersion: Current version
     latestVersion: Latest release
@@ -2810,7 +2810,7 @@ requestObservation:
     continent: Continent
 systemSettings:
   title: System Settings
-  subtitle: Manage instance-wide configuration for this InsightFlare deployment.
+  subtitle: Manage instance-wide configuration for this 888GA deployment.
   guide: Guide
   analyticsEngineTitle: Analytics Engine
   analyticsEngineDescription: Configure the Cloudflare credentials used to read
@@ -2830,7 +2830,7 @@ systemSettings:
   analyticsEngineDisabledDescription: This deployment automatically disabled the
     Analytics Engine binding because the Cloudflare account has not enabled
     Analytics Engine. Enable Analytics Engine in Cloudflare, then redeploy
-    InsightFlare to activate related analysis features.
+    888GA to activate related analysis features.
   analyticsEngineDisabledHint: Analytics Engine settings are locked until
     Analytics Engine is enabled and the Worker is redeployed.
   analyticsEngineOpenCloudflare: Open Cloudflare Analytics Engine
@@ -2903,7 +2903,7 @@ systemSettings:
   loginTurnstileGuideSteps:
     - Open the Cloudflare Dashboard and go to Turnstile.
     - Create a new widget and choose Invisible mode.
-    - Add the current InsightFlare login domain to the allowed hostnames.
+    - Add the current 888GA login domain to the allowed hostnames.
     - Copy the Site Key and Secret Key after the widget is created.
     - Enter the Site Key and Secret Key here, run the verification test, then
       save the configuration.
@@ -2937,7 +2937,7 @@ systemSettings:
   loadFailed: Failed to load email configuration.
 systemPerformance:
   title: System Performance
-  subtitle: Monitor InsightFlare collection, buffering, and write health from
+  subtitle: Monitor 888GA collection, buffering, and write health from
     existing analytics rows.
   refresh: Refresh
   loadFailed: Failed to load system performance data.

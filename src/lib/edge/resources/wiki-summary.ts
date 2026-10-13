@@ -11,7 +11,7 @@ const WIKIDATA_API_ENDPOINT = "https://www.wikidata.org/w/api.php";
 const DEFAULT_WIKI_LANGUAGE = "en";
 const CACHE_CONTROL_HEADER =
   "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800";
-const WIKIMEDIA_USER_AGENT = "InsightFlare/0.1 (+https://insight.ravelloh.com)";
+const WIKIMEDIA_USER_AGENT = "888GA/0.1 (+https://flow.aiurl.tw)";
 const CACHE_HEADERS = { "cache-control": CACHE_CONTROL_HEADER };
 const WIKIPEDIA_ACCEPT_LANGUAGE: Partial<Record<Locale, string>> = {
   zh: "zh-CN,zh;q=0.9,en;q=0.8",

@@ -9,7 +9,7 @@ For general questions, setup help, deployment problems, and usage discussions, u
 Before opening an issue:
 
 - Check the README and existing issues
-- Include the InsightFlare version or commit you are using
+- Include the 888GA version or commit you are using
 - Include your deployment method and relevant Cloudflare environment details
 - Include logs or screenshots when they help explain the problem
 
@@ -39,4 +39,4 @@ Report security issues by following [SECURITY.md](SECURITY.md).
 
 ## Commercial Support
 
-Commercial support and hosted-service support channels may be added later as the InsightFlare cloud platform matures.
+Commercial support and hosted-service support channels may be added later as the 888GA cloud platform matures.

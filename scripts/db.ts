@@ -116,12 +116,12 @@ async function main(): Promise<void> {
     ),
   );
   runtime.logSummary(stages, startedAt);
-  runtime.rlog.success("InsightFlare database command completed successfully.");
+  runtime.rlog.success("888GA database command completed successfully.");
 }
 
 main().catch((error: unknown) => {
   runtime.rlog.log();
-  runtime.rlog.error("InsightFlare database command failed");
+  runtime.rlog.error("888GA database command failed");
   runtime.rlog.error(error instanceof Error ? error.message : String(error));
   runtime.rlog.error(`Full log: ${runtime.logFilePath}`);
   process.exitCode = 1;

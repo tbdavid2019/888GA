@@ -9,7 +9,7 @@ import {
 const release: ReleaseIndexEntry = {
   tagName: "v1.2.3",
   name: "Release v1.2.3",
-  htmlUrl: "https://github.com/RavelloH/InsightFlare/releases/tag/v1.2.3",
+  htmlUrl: "https://github.com/tbdavid2019/888GA/releases/tag/v1.2.3",
   changelogPath: "changelog/v1.2.3.md",
   publishedAt: "2026-01-01T00:00:00Z",
   createdAt: "2026-01-01T00:00:00Z",
@@ -39,7 +39,7 @@ describe("release-index", () => {
 
       await expect(fetchReleaseIndex()).resolves.toEqual([release]);
       expect(fetchSpy).toHaveBeenCalledWith(
-        "https://raw.githubusercontent.com/tbdavid2019/InsightFlare/main/.github/releases/version.json",
+        "https://raw.githubusercontent.com/tbdavid2019/888GA/main/.github/releases/version.json",
       );
     });
 
@@ -79,11 +79,11 @@ describe("release-index", () => {
 
       expect(fetchSpy).toHaveBeenNthCalledWith(
         1,
-        "https://raw.githubusercontent.com/tbdavid2019/InsightFlare/main/changelog/v1.2.3.md",
+        "https://raw.githubusercontent.com/tbdavid2019/888GA/main/changelog/v1.2.3.md",
       );
       expect(fetchSpy).toHaveBeenNthCalledWith(
         2,
-        "https://raw.githubusercontent.com/tbdavid2019/InsightFlare/main/.github/releases/i18n/zh/v1.2.3.md",
+        "https://raw.githubusercontent.com/tbdavid2019/888GA/main/.github/releases/i18n/zh/v1.2.3.md",
       );
     });
 
@@ -98,7 +98,7 @@ describe("release-index", () => {
       expect(fetchSpy).toHaveBeenCalledTimes(2);
       expect(fetchSpy).toHaveBeenNthCalledWith(
         2,
-        "https://raw.githubusercontent.com/tbdavid2019/InsightFlare/main/changelog/v1.2.3.md",
+        "https://raw.githubusercontent.com/tbdavid2019/888GA/main/changelog/v1.2.3.md",
       );
     });
 

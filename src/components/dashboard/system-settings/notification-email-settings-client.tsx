@@ -69,7 +69,7 @@ function defaultConfig(): PublicNotificationEmailConfig {
   return {
     enabled: false,
     provider: "resend",
-    fromName: "InsightFlare",
+    fromName: "888GA",
     fromEmail: "",
     replyTo: "",
     resend: {

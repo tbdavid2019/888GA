@@ -27,7 +27,7 @@ function visitRow(
   pathname: string,
 ): VisitBindingRow {
   return {
-    asOrganization: "InsightFlare E2E Network",
+    asOrganization: "888GA E2E Network",
     browser: "Chrome",
     browserVersion: "1",
     city: "Shanghai",

@@ -474,7 +474,7 @@ export function DashboardShell({
           <Sidebar variant="inset" collapsible="icon">
             <SidebarHeader>
               <AppSidebarBrand
-                href="https://github.com/tbdavid2019/InsightFlare"
+                href="https://github.com/tbdavid2019/888GA"
                 target="_blank"
                 appName={messages.appName}
                 suffix={import.meta.env.VITE_DEMO_MODE === "1" ? "Demo" : ""}

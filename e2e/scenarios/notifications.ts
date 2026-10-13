@@ -247,7 +247,7 @@ export function registerNotificationScenarios(context: E2eContext) {
       {
         enabled: true,
         fromEmail: "notifications@e2e.test",
-        fromName: "InsightFlare E2E",
+        fromName: "888GA E2E",
         provider: "resend",
         replyTo: "replies@e2e.test",
         resendApiKey: "e2e-resend-api-key",
@@ -277,8 +277,8 @@ export function registerNotificationScenarios(context: E2eContext) {
       expect.objectContaining({
         authorization: "Bearer e2e-resend-api-key",
         body: expect.objectContaining({
-          from: "InsightFlare E2E <notifications@e2e.test>",
-          subject: "InsightFlare email test",
+          from: "888GA E2E <notifications@e2e.test>",
+          subject: "888GA email test",
           text: expect.stringContaining("Resend email configuration"),
           to: [ownerA?.email],
         }),
@@ -302,8 +302,8 @@ export function registerNotificationScenarios(context: E2eContext) {
     expect(mailboxAfterNotification).toHaveLength(2);
     expect(mailboxAfterNotification[1]).toMatchObject({
       body: expect.objectContaining({
-        html: expect.stringContaining("InsightFlare notification test"),
-        subject: "InsightFlare notification test",
+        html: expect.stringContaining("888GA notification test"),
+        subject: "888GA notification test",
         to: [ownerA?.email],
       }),
       id: "e2e-email-2",

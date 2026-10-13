@@ -4,7 +4,7 @@ import { fetchGithubCompare } from "@/lib/github-releases";
 import { bad, errorResponse, jsonResponseFor } from "@/lib/response";
 
 const REPO_OWNER = "tbdavid2019";
-const REPO_NAME = "InsightFlare";
+const REPO_NAME = "888GA";
 const REF_PATTERN = /^[0-9A-Za-z._/-]+$/;
 
 function readRef(url: URL, key: string): string {

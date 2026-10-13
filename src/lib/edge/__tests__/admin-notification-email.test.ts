@@ -77,7 +77,7 @@ function row(config: Partial<NotificationEmailConfig>) {
       version: 1,
       enabled: false,
       provider: "resend",
-      fromName: "InsightFlare",
+      fromName: "888GA",
       fromEmail: "",
       replyTo: "",
       resend: {
@@ -174,7 +174,7 @@ describe("admin notification email handlers", () => {
     const upsert = statement();
 
     const response = await handleNotificationEmailConfigAdmin(
-      jsonRequest({ fromName: "InsightFlare Mail" }),
+      jsonRequest({ fromName: "888GA Mail" }),
       createEnv([select, upsert]),
     );
 
@@ -182,7 +182,7 @@ describe("admin notification email handlers", () => {
     const saved = JSON.parse(
       upsert.bind.mock.calls[0][1],
     ) as NotificationEmailConfig;
-    expect(saved.fromName).toBe("InsightFlare Mail");
+    expect(saved.fromName).toBe("888GA Mail");
     expect(saved.resend.apiKeyEncrypted).toBe("v1:existing");
     expect(saved.resend.configured).toBe(true);
   });
@@ -288,7 +288,7 @@ describe("admin notification email handlers", () => {
     expect(body.data).toMatchObject({
       enabled: false,
       provider: "resend",
-      fromName: "InsightFlare",
+      fromName: "888GA",
       fromEmail: "",
       replyTo: "",
       resend: {
@@ -304,7 +304,7 @@ describe("admin notification email handlers", () => {
     const encrypted = await encryptNotificationSecret(env, "re_test_secret");
     const select = statement({
       first: row({
-        fromName: "InsightFlare",
+        fromName: "888GA",
         fromEmail: "noreply@example.test",
         resend: {
           apiKeyEncrypted: encrypted,
@@ -354,7 +354,7 @@ describe("admin notification email handlers", () => {
     const encrypted = await encryptNotificationSecret(env, "re_test_secret");
     const select = statement({
       first: row({
-        fromName: "InsightFlare",
+      fromName: "888GA",
         fromEmail: "noreply@example.test",
         resend: {
           apiKeyEncrypted: encrypted,

@@ -1,6 +1,6 @@
 # Code of Conduct
 
-InsightFlare aims to be a practical, respectful open source project.
+888GA aims to be a practical, respectful open source project.
 
 ## Expected Behavior
 

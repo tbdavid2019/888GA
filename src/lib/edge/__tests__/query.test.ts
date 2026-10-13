@@ -77,7 +77,7 @@ const userSession: EdgeSessionClaims = {
 };
 const siteRow = {
   id: "site-1",
-  name: "InsightFlare",
+  name: "888GA",
   domain: "example.com",
 };
 const publicSiteRow = {

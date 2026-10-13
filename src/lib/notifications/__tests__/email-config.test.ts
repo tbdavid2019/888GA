@@ -22,7 +22,7 @@ describe("notification email config", () => {
       normalizeNotificationEmailConfig({
         enabled: true,
         provider: "resend",
-        fromName: "InsightFlare",
+        fromName: "888GA",
         fromEmail: "noreply@example.test",
         resend: {
           apiKeyEncrypted: "v1:secret",
@@ -58,7 +58,7 @@ describe("notification email config", () => {
     ).toMatchObject({
       enabled: false,
       provider: "none",
-      fromName: "InsightFlare",
+      fromName: "888GA",
       fromEmail: "",
       replyTo: "reply@example.test",
       resend: {
@@ -151,7 +151,7 @@ describe("notification email config", () => {
     ).toEqual({
       ok: true,
       input: {
-        fromName: "InsightFlare",
+        fromName: "888GA",
         fromEmail: "",
         replyTo: "",
         clearResendApiKey: false,

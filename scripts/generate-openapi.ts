@@ -3232,7 +3232,7 @@ function responseExampleFor(schemaName: string | null, operationId: string) {
     HealthResponse: { status: "healthy", timestamp: sampleGeneratedAt },
     RootDiscoveryResponse: success({
       version: getAppVersion(),
-      service: "InsightFlare Analytics API",
+      service: "888GA Analytics API",
       links: {
         self: "/api/v1",
         openapi: "/.well-known/openapi.json",
@@ -3755,13 +3755,13 @@ function buildSpec(): OpenAPISpec {
   return {
     openapi: "3.1.0",
     info: {
-      title: "InsightFlare API",
+      title: "888GA API",
       description:
         "Privacy-focused web analytics API. API v1 endpoints use an API key passed as a Bearer token in the Authorization header. All timestamps in typed API v1 query bodies and response objects are ISO 8601 date-time strings unless the field name explicitly ends with `Ms`. Fields ending with `Ms` represent millisecond values, such as durations or Unix timestamps depending on context. Analytics ranges use [from, to) semantics.",
       version: getAppVersion(),
       contact: {
-        name: "InsightFlare",
-        url: "https://github.com/ravelloh/InsightFlare",
+        name: "888GA",
+        url: "https://github.com/tbdavid2019/888GA",
       },
       license: {
         name: "MIT",
@@ -3769,7 +3769,7 @@ function buildSpec(): OpenAPISpec {
       },
     },
     externalDocs: {
-      description: "InsightFlare API documentation",
+      description: "888GA API documentation",
       url: "https://insight.ravelloh.com/docs",
     },
     servers: [
@@ -4849,7 +4849,7 @@ function mergeProjectOperations(spec: OpenAPISpec): void {
             : `${route.operationId}.${method}`,
         summary: route.summary,
         description: route.internal
-          ? `${route.summary}. This endpoint is internal to the InsightFlare dashboard and is not a public API v1 compatibility contract.`
+          ? `${route.summary}. This endpoint is internal to the 888GA dashboard and is not a public API v1 compatibility contract.`
           : `${route.summary}.`,
         tags: [route.tag],
         "x-required-scopes": [],

@@ -17,7 +17,7 @@ import { registerUiGalleryScenarios } from "./ui-gallery";
 // registered E2E graph, so the stateful scenarios always run in this order.
 const context = createFlowContext();
 
-test.describe.serial("InsightFlare E2E", () => {
+test.describe.serial("888GA E2E", () => {
   registerBootstrapScenarios(context);
   registerAccountTopologyScenarios(context);
   registerTeamSiteManagementScenarios(context);

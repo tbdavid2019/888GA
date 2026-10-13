@@ -15,7 +15,7 @@ function baseMessage(
     type: input.type,
     severity: input.severity ?? "info",
     requiresAttention: input.requiresAttention ?? false,
-    title: input.title ?? "InsightFlare notification",
+    title: input.title ?? "888GA notification",
     summary: input.summary ?? "Preview notification",
     bodyText: input.bodyText ?? "Preview notification body.",
     bodyHtml: "",
@@ -39,10 +39,10 @@ function baseMessage(
 export const notificationEmailPreviewMessages = {
   test: baseMessage({
     type: "test",
-    title: "InsightFlare notification test",
-    summary: "This is a test notification from InsightFlare.",
+    title: "888GA notification test",
+    summary: "This is a test notification from 888GA.",
     bodyText:
-      "This is a test notification from InsightFlare. If email is configured and enabled, this message also verifies Resend delivery.",
+      "This is a test notification from 888GA. If email is configured and enabled, this message also verifies Resend delivery.",
     data: { source: "preview", locale: "en" },
   }),
   report: baseMessage({

@@ -46,7 +46,7 @@ export type NotificationEmailValidationResult =
   | { ok: true; input: NotificationEmailConfigUpdateInput }
   | { ok: false; message: string };
 
-const DEFAULT_FROM_NAME = "InsightFlare";
+const DEFAULT_FROM_NAME = "888GA";
 const MAX_FROM_NAME_LENGTH = 120;
 const MAX_EMAIL_LENGTH = 254;
 const MAX_API_KEY_LENGTH = 512;

@@ -383,7 +383,7 @@ export function handleDemoAdminRoutes(
           enabled:
             typeof emailBody.enabled === "boolean" ? emailBody.enabled : false,
           provider: emailBody.provider === "none" ? "none" : "resend",
-          fromName: String(emailBody.fromName || "InsightFlare"),
+          fromName: String(emailBody.fromName || "888GA"),
           fromEmail: String(emailBody.fromEmail || ""),
           replyTo: String(emailBody.replyTo || ""),
           resend: {

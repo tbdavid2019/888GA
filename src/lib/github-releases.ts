@@ -80,7 +80,7 @@ export async function fetchGithubCompare(
         {
           headers: {
             Accept: "application/vnd.github+json",
-            "User-Agent": "InsightFlare",
+            "User-Agent": "888GA",
             "X-GitHub-Api-Version": "2022-11-28",
           },
           cache: "no-store",

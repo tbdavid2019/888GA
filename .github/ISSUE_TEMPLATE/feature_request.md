@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest an improvement for InsightFlare
+about: Suggest an improvement for 888GA
 title: "[Feature]: "
 labels: enhancement
 assignees: ""

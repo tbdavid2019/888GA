@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: InsightFlare API
+  title: 888GA API
   description: Privacy-focused web analytics API. API v1 endpoints use an API key
     passed as a Bearer token in the Authorization header. All timestamps in
     typed API v1 query bodies and response objects are ISO 8601 date-time
@@ -9,13 +9,13 @@ info:
     depending on context. Analytics ranges use [from, to) semantics.
   version: 0.7.1
   contact:
-    name: InsightFlare
-    url: https://github.com/ravelloh/InsightFlare
+    name: 888GA
+    url: https://github.com/tbdavid2019/888GA
   license:
     name: MIT
     url: https://github.com/ravelloh/InsightFlare/blob/main/LICENSE
 externalDocs:
-  description: InsightFlare API documentation
+  description: 888GA API documentation
   url: https://insight.ravelloh.com/docs
 servers:
   - url: https://insight.ravelloh.com

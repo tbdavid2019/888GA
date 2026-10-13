@@ -1,9 +1,9 @@
 {
   "manifestVersion": 1,
-  "api": "InsightFlare API",
+  "api": "888GA API",
   "version": "${version}",
   "baseUrl": "${baseUrl}",
-  "description": "Agent operating guide for the InsightFlare public API.",
+  "description": "Agent operating guide for the 888GA public API.",
   "openapi": {
     "url": "/.well-known/openapi.json"
   },
@@ -19,7 +19,7 @@
           "The user must have permission to manage API keys for the selected team."
         ],
         "navigation": [
-          "Open the InsightFlare application and sign in.",
+          "Open the 888GA application and sign in.",
           "Use the left sidebar team switcher to select the team that will own the key.",
           "In that team's sidebar, open API Keys under the team management section."
         ]

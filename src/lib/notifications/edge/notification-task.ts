@@ -472,10 +472,10 @@ export async function createManualTestNotification(input: {
       type: "test",
       severity: "info",
       requiresAttention: false,
-      title: "InsightFlare notification test",
-      summary: "This is a test notification from InsightFlare.",
+      title: "888GA notification test",
+      summary: "This is a test notification from 888GA.",
       bodyText:
-        "This is a test notification from InsightFlare. If email is configured and enabled, this message also verifies Resend delivery.",
+        "This is a test notification from 888GA. If email is configured and enabled, this message also verifies Resend delivery.",
       data: { source: "manual_test" },
     },
     locale,

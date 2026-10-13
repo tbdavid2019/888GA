@@ -173,12 +173,12 @@ async function main(): Promise<void> {
   runtime.rlog.log(
     `dist size${"".padEnd(25)} ${formatBytes(folderSize(path.join(ROOT_DIR, "dist")))}`,
   );
-  runtime.rlog.success("InsightFlare build completed successfully.");
+  runtime.rlog.success("888GA build completed successfully.");
 }
 
 main().catch((error: unknown) => {
   runtime.rlog.log();
-  runtime.rlog.error("InsightFlare build failed");
+  runtime.rlog.error("888GA build failed");
   runtime.rlog.error(error instanceof Error ? error.message : String(error));
   runtime.rlog.error(`Full log: ${runtime.logFilePath}`);
   process.exitCode = 1;

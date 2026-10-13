@@ -1,12 +1,12 @@
-# Contributing to InsightFlare
+# Contributing to 888GA
 
-Thanks for taking the time to improve InsightFlare.
+Thanks for taking the time to improve 888GA.
 
 This project is still early, so the most useful contributions are focused bug fixes, tests, documentation improvements, and small feature changes that are easy to review.
 
 ## Development Setup
 
-InsightFlare uses Node.js 24 and pnpm 10.33.0.
+888GA uses Node.js 24 and pnpm 10.33.0.
 
 ```bash
 pnpm install --frozen-lockfile

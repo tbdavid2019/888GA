@@ -77,7 +77,7 @@ function demoNotificationBodyHtml(input: {
     '<table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#f8fafc;padding:28px 14px"><tr><td align="center">',
     '<table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:640px;background:#ffffff;border:1px solid #e2e8f0">',
     '<tr><td style="padding:28px 28px 20px;border-bottom:1px solid #e2e8f0">',
-    '<div style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#64748b;margin-bottom:10px">InsightFlare</div>',
+    '<div style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#64748b;margin-bottom:10px">888GA</div>',
     `<h1 style="margin:0;color:#0f172a;font-size:22px;line-height:1.3;font-weight:650">${escapeDemoNotificationHtml(input.title)}</h1>`,
     `<p style="margin:12px 0 0;color:#475569;font-size:14px;line-height:1.6">${escapeDemoNotificationHtml(input.summary)}</p>`,
     "</td></tr>",

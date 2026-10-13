@@ -181,7 +181,7 @@ export function createRuntime(scriptName: string, title: string) {
   function logHeader(options: CommonOptions): void {
     const environment = detectExecutionEnvironment();
     rlog.log();
-    rlog.log(`InsightFlare ${title}`);
+    rlog.log(`888GA ${title}`);
     rlog.log();
     rlog.info(`Target: ${options.target}`);
     rlog.info(`Environment: ${environment.kind}`);

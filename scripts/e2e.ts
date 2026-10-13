@@ -80,7 +80,7 @@ const E2E_GITHUB_RELEASES = [
     draft: false,
     html_url: "https://example.test/releases/v0.5.0",
     id: 1,
-    name: "InsightFlare E2E release",
+    name: "888GA E2E release",
     prerelease: false,
     published_at: "2026-07-13T12:00:00.000Z",
     tag_name: "v0.5.0",
@@ -326,7 +326,7 @@ function testSiteHtml(workerURL: string, requestURL: URL): string {
   const siteId = requestURL.searchParams.get("siteId") || "";
   const scriptURL = `${workerURL}/script.js?siteId=${encodeURIComponent(siteId)}`;
   return `<!doctype html>
-<html><head><meta charset="utf-8"><title>InsightFlare E2E Test Site</title>
+<html><head><meta charset="utf-8"><title>888GA E2E Test Site</title>
 <script defer src="${scriptURL}"></script></head>
 <body><main><h1>E2E Test Site</h1><a id="product-link" href="/product?siteId=${encodeURIComponent(siteId)}">Product</a>
 <button id="signup" data-insightflare-event="signup_clicked" data-insightflare-event-plan="pro">Sign up</button>
@@ -701,7 +701,7 @@ async function startTestSite(
       }
       if (
         request.method === "GET" &&
-        requestURL.pathname === "/github/repos/RavelloH/InsightFlare/releases"
+        requestURL.pathname === "/github/repos/tbdavid2019/888GA/releases"
       ) {
         releaseJson(response, E2E_GITHUB_RELEASES);
         return;
@@ -1046,7 +1046,7 @@ async function verifyTestServices(environment: Environment): Promise<void> {
       headers: { "x-insightflare-e2e-token": environment.mockControlToken },
     }),
     fetchWithTimeout(
-      `${environment.testSiteURL}/github/repos/RavelloH/InsightFlare/releases`,
+      `${environment.testSiteURL}/github/repos/tbdavid2019/888GA/releases`,
     ),
   ]);
 
@@ -1206,7 +1206,7 @@ async function main(): Promise<void> {
   process.once("SIGTERM", requestShutdown);
 
   try {
-    rlog.info("InsightFlare E2E");
+    rlog.info("888GA E2E");
     const activeEnvironment = await createEnvironment(options);
     environment = activeEnvironment;
     throwIfAborted(shutdown.signal);

@@ -2,13 +2,13 @@ appName: 888GA
 uiGallery:
   searchLabel: UI コンポーネントを検索
   searchPlaceholder: コンポーネントを検索
-  backToApp: InsightFlare に戻る
+  backToApp: 888GA に戻る
   noSearchResults: 検索に一致するコンポーネントはありません。
   toggleNavigation: ライブラリナビゲーションを切り替え
   library: UI ライブラリ
   componentsCount: "{count} 個のコンポーネント"
   statesCount: "{count} 個の状態"
-  designSystem: InsightFlare デザインシステム
+  designSystem: 888GA デザインシステム
   pageTitle: UI コンポーネント
   catalogSummary: "{components} 個のコンポーネント · {states} 個の prop 値"
   categories:
@@ -1788,7 +1788,7 @@ notificationCenter:
   detailFields: {}
 notificationEmail:
   common:
-    brand: InsightFlare
+    brand: 888GA
     date: 日付
     coreMetrics: 主要指標
     topPages: 上位ページ
@@ -1811,8 +1811,8 @@ notificationEmail:
     never: 未受信
     noPageData: ページデータはありません。
     noReferrerData: 参照元データはありません。
-    footer: このメールは InsightFlare の通知システムから送信されました。
-    fallbackSubject: InsightFlare 通知
+    footer: このメールは 888GA の通知システムから送信されました。
+    fallbackSubject: 888GA 通知
     trackingHint: トラッキングスクリプトが正しく設置されているか、またはサイトに引き続きトラフィックがあるかを確認してください。
     severity:
       info: 情報
@@ -1820,10 +1820,10 @@ notificationEmail:
       warning: 警告
       critical: 重大
   test:
-    subject: InsightFlare 通知テスト
-    title: InsightFlare 通知テスト
-    summary: これは InsightFlare からのテスト通知です。
-    body: これは InsightFlare からのテスト通知です。メールが設定され有効になっている場合、このメッセージは Resend の配信も確認します。
+    subject: 888GA 通知テスト
+    title: 888GA 通知テスト
+    summary: これは 888GA からのテスト通知です。
+    body: これは 888GA からのテスト通知です。メールが設定され有効になっている場合、このメッセージは Resend の配信も確認します。
   report:
     subject: "{site} の{periodLabel}トラフィックレポート"
     title: "{site} の{periodLabel}トラフィックレポート"
@@ -1861,7 +1861,7 @@ notificationEmail:
 runtimeConfigError:
   title: ランタイム設定が必要です
   eyebrow: デプロイを一時停止中
-  heading: UI を読み込む前に、InsightFlare にはランタイムシークレットが 1 つ必要です。
+  heading: UI を読み込む前に、888GA にはランタイムシークレットが 1 つ必要です。
   description:
     アプリは起動していますが、現在のランタイム環境で必須の root secret
     を取得できないため、ダッシュボードへのアクセスを一時的にブロックしています。
@@ -1875,7 +1875,7 @@ runtimeConfigError:
   homeLabel: ダッシュボードを再試行
 login:
   title: サインイン
-  subtitle: InsightFlare アカウントを使用します。
+  subtitle: 888GA アカウントを使用します。
   username: ユーザー名またはメール
   password: パスワード
   signIn: サインイン
@@ -1931,7 +1931,7 @@ errorPage:
   notFoundDescription: アドレスが正しくないか、ページが移動した可能性があります。
   errorEyebrow: アプリケーションエラー
   errorTitle: 問題が発生しました
-  errorDescription: InsightFlare はリクエストを完了できませんでした。以下の診断情報が調査に役立ちます。
+  errorDescription: 888GA はリクエストを完了できませんでした。以下の診断情報が調査に役立ちます。
   statusLabel: ステータス
   reasonLabel: 原因
   requestLabel: リクエストパス
@@ -2393,7 +2393,7 @@ managementNav:
   systemSettings: システム設定
 managementPages:
   versionUpdates:
-    subtitle: 公開済み InsightFlare リリースと稼働中ビルドを確認します。
+    subtitle: 公開済み 888GA リリースと稼働中ビルドを確認します。
     empty: バージョン更新記録はまだありません。
     currentVersion: 現在のバージョン
     latestVersion: 最新リリース
@@ -2714,7 +2714,7 @@ requestObservation:
     continent: 大陸
 systemSettings:
   title: システム設定
-  subtitle: この InsightFlare デプロイ全体の設定を管理します。
+  subtitle: この 888GA デプロイ全体の設定を管理します。
   guide: ガイド
   analyticsEngineTitle: Analytics Engine
   analyticsEngineDescription: リクエスト監視と将来のトラフィック・イベント分析で使用する Analytics Engine の Cloudflare 認証情報を設定します。
@@ -2729,7 +2729,7 @@ systemSettings:
   analyticsEngineDisabledTitle: Analytics Engine が有効ではありません
   analyticsEngineDisabledDescription: Cloudflare アカウントで Analytics Engine
     が有効化されていないため、このデプロイでは Analytics Engine バインディングが自動的に無効化されました。Cloudflare で
-    Analytics Engine を有効化し、InsightFlare を再デプロイすると関連分析機能が有効になります。
+    Analytics Engine を有効化し、888GA を再デプロイすると関連分析機能が有効になります。
   analyticsEngineDisabledHint: Analytics Engine が有効化され Worker が再デプロイされるまで、Analytics Engine 設定はロックされます。
   analyticsEngineOpenCloudflare: Cloudflare Analytics Engine を開く
   analyticsEngineGuideTitle: Analytics Engine 認証情報を取得
@@ -2793,7 +2793,7 @@ systemSettings:
   loginTurnstileGuideSteps:
     - Cloudflare Dashboard を開き、Turnstile に移動します。
     - 新しいウィジェットを作成し、Invisible モードを選択します。
-    - 現在の InsightFlare ログインドメインを許可ホスト名に追加します。
+    - 現在の 888GA ログインドメインを許可ホスト名に追加します。
     - ウィジェット作成後に Site Key と Secret Key をコピーします。
     - ここに Site Key と Secret Key を入力し、検証テストを実行してから設定を保存します。
   enabledLabel: メール送信を有効化
@@ -2825,7 +2825,7 @@ systemSettings:
   loadFailed: メール設定を読み込めません。
 systemPerformance:
   title: システムパフォーマンス
-  subtitle: 既存の分析行から InsightFlare の収集、バッファリング、書き込みの健全性を監視します。
+  subtitle: 既存の分析行から 888GA の収集、バッファリング、書き込みの健全性を監視します。
   refresh: 更新
   loadFailed: システムパフォーマンスデータを読み込めません。
   noData: この期間にシステムパフォーマンスデータはありません。

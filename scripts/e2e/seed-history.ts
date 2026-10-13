@@ -33,7 +33,7 @@ function visitRow(input: HistorySeedInput, index: number): VisitBindingRow {
     input.nowMs - (120 - index) * DAY_MS + (index % 12) * 60 * 60 * 1000;
   const visitorIndex = index % 24;
   return {
-    asOrganization: "InsightFlare E2E Network",
+    asOrganization: "888GA E2E Network",
     browser,
     browserVersion: "1",
     city: country === "CN" ? "Shanghai" : country === "US" ? "New York" : "",

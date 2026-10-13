@@ -153,7 +153,7 @@ describe("notification delivery", () => {
       enabled: true,
       provider: "resend",
       fromEmail: "from@example.test",
-      fromName: "InsightFlare",
+      fromName: "888GA",
       replyTo: "",
       resend: {
         configured: true,
@@ -192,7 +192,7 @@ describe("notification delivery", () => {
       enabled: true,
       provider: "resend",
       fromEmail: "from@example.test",
-      fromName: "InsightFlare",
+      fromName: "888GA",
       replyTo: "",
       resend: {
         configured: true,
@@ -250,7 +250,7 @@ describe("notification delivery", () => {
       enabled: true,
       provider: "resend",
       fromEmail: "from@example.test",
-      fromName: "InsightFlare",
+      fromName: "888GA",
       replyTo: "",
       resend: {
         configured: true,
@@ -296,7 +296,7 @@ describe("notification delivery", () => {
       enabled: true,
       provider: "resend",
       fromEmail: "from@example.test",
-      fromName: "InsightFlare",
+      fromName: "888GA",
       replyTo: "",
       resend: {
         configured: true,
@@ -514,9 +514,9 @@ describe("notification delivery", () => {
       ),
     ) as Record<string, unknown>;
     expect(body).toMatchObject({
-      from: "InsightFlare <from@example.test>",
+      from: "888GA <from@example.test>",
       subject: "Test",
-      text: "You have a new InsightFlare notification.",
+      text: "You have a new 888GA notification.",
       html: "<p>Fallback HTML</p>",
     });
     expect(body.reply_to).toBeUndefined();

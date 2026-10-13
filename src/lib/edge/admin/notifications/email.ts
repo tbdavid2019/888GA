@@ -33,11 +33,11 @@ import {
   validateNotificationEmailConfig,
   validateNotificationEmailUpdateInput,
 } from "@/lib/notifications/email-config";
-const TEST_EMAIL_SUBJECT = "InsightFlare email test";
+const TEST_EMAIL_SUBJECT = "888GA email test";
 const TEST_EMAIL_TEXT =
-  "This is a test email from InsightFlare. Your Resend email configuration is working.";
+  "This is a test email from 888GA. Your Resend email configuration is working.";
 const TEST_EMAIL_HTML =
-  "<p>This is a test email from InsightFlare.</p><p>Your Resend email configuration is working.</p>";
+  "<p>This is a test email from 888GA.</p><p>Your Resend email configuration is working.</p>";
 type NotificationEmailTestOptions = {
   fetchImpl?: typeof fetch;
   deadlineMs?: number;

@@ -92,7 +92,7 @@ describe("GET /api/private/releases/compare", () => {
   it("returns comparison data for valid refs", async () => {
     requireSessionMock.mockResolvedValueOnce({ userId: "u1" } as any);
     fetchGithubCompareMock.mockResolvedValueOnce({
-      htmlUrl: "https://github.com/tbdavid2019/InsightFlare/compare/v1...v2",
+      htmlUrl: "https://github.com/tbdavid2019/888GA/compare/v1...v2",
       status: "ahead",
       totalCommits: 5,
       commits: [
@@ -122,7 +122,7 @@ describe("GET /api/private/releases/compare", () => {
     expect(body.data.totalCommits).toBe(5);
     expect(fetchGithubCompareMock).toHaveBeenCalledWith(
       "tbdavid2019",
-      "InsightFlare",
+      "888GA",
       "v1.0.0",
       "v2.0.0",
     );
@@ -172,7 +172,7 @@ describe("GET /api/private/releases/compare", () => {
     await handleReleasesCompareRequest(request, {} as any);
     expect(fetchGithubCompareMock).toHaveBeenCalledWith(
       "tbdavid2019",
-      "InsightFlare",
+      "888GA",
       "v1.0.0",
       "v2.0.0",
     );

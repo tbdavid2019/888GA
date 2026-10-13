@@ -1,6 +1,6 @@
 # Security Policy
 
-InsightFlare handles analytics data and deployment secrets, so security reports are taken seriously.
+888GA handles analytics data and deployment secrets, so security reports are taken seriously.
 
 ## Supported Versions
 

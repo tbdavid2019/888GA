@@ -13,6 +13,9 @@
 - 設定更新時重新取得共用資料；登入與登出時清除查詢快取。
 - 將 statements coverage 門檻從 95% 調整為 90%，使其符合目前專案的整體 coverage 基準；branches、functions 與 lines 門檻維持原值。
 - 修正公開分享頁的頁首與文件標題，改用 888GA 品牌名稱並移除舊有的「InsightFlare V1」文字。
+- 更新多語系登入、系統提示、通知郵件與公共文件中的產品名稱為 888GA。
+- 每次 Cloudflare Worker 部署都上傳以 commit SHA 命名的構件，保留 30 天供下載。
+- 清除兩個已過期且沒有 PR 的 Dependabot 分支；保留仍有未合併語言功能提交的分支。
 
 ## 驗證結果
 
@@ -23,5 +26,5 @@
 
 ## 部署狀態
 
-- 本文件所列導航、快取與 CI coverage 門檻修正已推送至 `main`。最新 Cloudflare 部署成功：[部署紀錄](https://github.com/tbdavid2019/InsightFlare/actions/runs/38359434023)。
+- 本文件所列修正已推送至 `main`。每次 Cloudflare Worker 部署會產生可下載的 Worker 構件；正式 GitHub Release 仍依版本 changelog 建立。[Deploy Worker](https://github.com/tbdavid2019/888GA/actions/workflows/deploy.yml)
 - 後續建置、測試與部署使用遠端 CI，維持本機磁碟空間。

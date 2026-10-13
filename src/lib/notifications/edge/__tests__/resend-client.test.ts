@@ -3,7 +3,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { sendResendEmailWithRetry } from "@/lib/notifications/edge/resend-client";
 
 const payload = {
-  from: "InsightFlare <from@example.test>",
+  from: "888GA <from@example.test>",
   to: ["user@example.test"],
   subject: "Subject",
   text: "Text",

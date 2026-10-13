@@ -202,12 +202,12 @@ async function main(): Promise<void> {
   await writeBuildMeta(options);
 
   runtime.logSummary(stages, startedAt);
-  runtime.rlog.success("InsightFlare prebuild completed successfully.");
+  runtime.rlog.success("888GA prebuild completed successfully.");
 }
 
 main().catch((error: unknown) => {
   runtime.rlog.log();
-  runtime.rlog.error("InsightFlare prebuild failed");
+  runtime.rlog.error("888GA prebuild failed");
   runtime.rlog.error(error instanceof Error ? error.message : String(error));
   runtime.rlog.error(`Full log: ${runtime.logFilePath}`);
   process.exitCode = 1;

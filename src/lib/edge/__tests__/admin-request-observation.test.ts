@@ -147,7 +147,7 @@ function normalAnalyticsRow(overrides: Record<string, unknown> = {}) {
     schemaVersion: REQUEST_ANALYTICS_SCHEMA_VERSION,
     siteId: "site-1",
     timestamp: "2026-09-02 00:00:00",
-    userAgent: "Mozilla/5.0 (compatible; InsightFlare E2E)",
+    userAgent: "Mozilla/5.0 (compatible; 888GA E2E)",
     traceId: "trace-normal",
     userAgentLength: 12,
     ...overrides,

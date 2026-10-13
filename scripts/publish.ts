@@ -86,12 +86,12 @@ async function main(): Promise<void> {
     await runtime.runStage(2, 2, "Publishing Worker", () => runDeploy(options)),
   );
   runtime.logSummary(stages, startedAt);
-  runtime.rlog.success("InsightFlare publish completed successfully.");
+  runtime.rlog.success("888GA publish completed successfully.");
 }
 
 main().catch((error: unknown) => {
   runtime.rlog.log();
-  runtime.rlog.error("InsightFlare publish failed");
+  runtime.rlog.error("888GA publish failed");
   runtime.rlog.error(error instanceof Error ? error.message : String(error));
   runtime.rlog.error(`Full log: ${runtime.logFilePath}`);
   process.exitCode = 1;
