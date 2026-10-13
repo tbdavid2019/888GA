@@ -821,7 +821,12 @@ export function AccountSettingsClient({
                   disabled={preferredLocaleSaving}
                   onValueChange={(value) => {
                     if (value === "default") setPreferredLocale("");
-                    if (value === "en" || value === "zh" || value === "ja") {
+                    if (
+                      value === "en" ||
+                      value === "zh" ||
+                      value === "zh-tw" ||
+                      value === "ja"
+                    ) {
                       setPreferredLocale(value);
                     }
                   }}
@@ -841,6 +846,9 @@ export function AccountSettingsClient({
                     </SelectItem>
                     <SelectItem value="zh">
                       {copy.preferredLanguageChinese}
+                    </SelectItem>
+                    <SelectItem value="zh-tw">
+                      {copy.preferredLanguageTraditionalChinese}
                     </SelectItem>
                     <SelectItem value="ja">
                       {copy.preferredLanguageJapanese}

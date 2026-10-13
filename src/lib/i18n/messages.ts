@@ -1544,6 +1544,7 @@ export interface AppMessages {
     preferredLanguageDefault: string;
     preferredLanguageEnglish: string;
     preferredLanguageChinese: string;
+    preferredLanguageTraditionalChinese: string;
     preferredLanguageJapanese: string;
     preferredLanguageSaved: string;
     preferredLanguageSaveFailed: string;
@@ -4624,7 +4625,8 @@ const enMessages = {
     preferredLanguageLabel: "Email language",
     preferredLanguageDefault: "Default",
     preferredLanguageEnglish: "English",
-    preferredLanguageChinese: "Chinese",
+    preferredLanguageChinese: "Simplified Chinese",
+    preferredLanguageTraditionalChinese: "Traditional Chinese",
     preferredLanguageJapanese: "Japanese",
     preferredLanguageSaved: "Notification language saved.",
     preferredLanguageSaveFailed: "Failed to save notification language.",
@@ -7749,7 +7751,8 @@ const zhMessages = {
     preferredLanguageLabel: "邮件语言",
     preferredLanguageDefault: "默认",
     preferredLanguageEnglish: "英语",
-    preferredLanguageChinese: "中文",
+    preferredLanguageChinese: "简体中文",
+    preferredLanguageTraditionalChinese: "繁体中文",
     preferredLanguageJapanese: "日语",
     preferredLanguageSaved: "通知语言已保存。",
     preferredLanguageSaveFailed: "保存通知语言失败。",
@@ -10835,7 +10838,8 @@ const zhTwMessages = {
     preferredLanguageLabel: "郵件語言",
     preferredLanguageDefault: "預設",
     preferredLanguageEnglish: "英語",
-    preferredLanguageChinese: "中文",
+    preferredLanguageChinese: "簡體中文",
+    preferredLanguageTraditionalChinese: "繁體中文",
     preferredLanguageJapanese: "日語",
     preferredLanguageSaved: "通知語言已儲存。",
     preferredLanguageSaveFailed: "儲存通知語言失敗。",
@@ -13973,7 +13977,8 @@ const jaMessages = {
     preferredLanguageLabel: "メール言語",
     preferredLanguageDefault: "デフォルト",
     preferredLanguageEnglish: "英語",
-    preferredLanguageChinese: "中国語",
+    preferredLanguageChinese: "簡体字中国語",
+    preferredLanguageTraditionalChinese: "繁体字中国語",
     preferredLanguageJapanese: "日本語",
     preferredLanguageSaved: "通知言語を保存しました。",
     preferredLanguageSaveFailed: "通知言語を保存できません。",

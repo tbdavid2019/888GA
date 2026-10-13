@@ -1668,7 +1668,8 @@ accountSettings:
   preferredLanguageLabel: 郵件語言
   preferredLanguageDefault: 預設
   preferredLanguageEnglish: 英語
-  preferredLanguageChinese: 中文
+  preferredLanguageChinese: 簡體中文
+  preferredLanguageTraditionalChinese: 繁體中文
   preferredLanguageJapanese: 日語
   preferredLanguageSaved: 通知語言已儲存。
   preferredLanguageSaveFailed: 儲存通知語言失敗。
