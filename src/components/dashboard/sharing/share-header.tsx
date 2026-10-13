@@ -108,15 +108,14 @@ export function ShareHeader({
                 >
                   <Image
                     src="/android-chrome-192x192.png"
-                    alt="InsightFlare"
+                    alt={messages.appName}
                     width={192}
                     height={192}
                     className="size-6 shrink-0"
                     priority
                   />
-                  <span className="hidden max-w-[24vw] truncate text-sm font-semibold md:block xl:max-w-none">
-                    <span className="text-primary">InsightFlare</span>{" "}
-                    <span className="text-muted-foreground">V1</span>
+                  <span className="hidden max-w-[24vw] truncate text-sm font-semibold text-primary md:block xl:max-w-none">
+                    {messages.appName}
                   </span>
                 </Link>
               </BreadcrumbLink>
