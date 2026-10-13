@@ -11,6 +11,7 @@ import {
 } from "@tanstack/react-router";
 
 import { notifyUrlStateChange } from "@/lib/dashboard/client/history";
+import { invalidateDashboardRouteContexts } from "@/lib/dashboard/client/route-context";
 import { navigateWithTransition } from "@/lib/page-transition";
 interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string;
@@ -110,7 +111,10 @@ export function useRouter() {
         );
         return result;
       },
-      refresh: () => router.invalidate(),
+      refresh: async () => {
+        await invalidateDashboardRouteContexts();
+        return router.invalidate();
+      },
       replace: (href: string, options?: { scroll?: boolean }) => {
         const result = navigate({
           to: href,

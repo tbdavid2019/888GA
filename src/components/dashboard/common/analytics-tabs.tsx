@@ -30,6 +30,7 @@ import {
   RiTargetLine,
   RiUser3Line,
 } from "@remixicon/react";
+import { useRouterState } from "@tanstack/react-router";
 import { motion } from "motion/react";
 
 import { useLiveSearchParams } from "@/lib/dashboard/client/history";
@@ -134,6 +135,7 @@ export const AnalyticsTabs = memo(function AnalyticsTabs({
   items,
 }: AnalyticsTabsProps) {
   const pathname = usePathname();
+  const routerStatus = useRouterState({ select: (state) => state.status });
   const searchParams = useLiveSearchParams();
   const normalizedPathname = normalizePathname(pathname || "");
   const scrollHostRef = useRef<HTMLDivElement | null>(null);
@@ -161,8 +163,8 @@ export const AnalyticsTabs = memo(function AnalyticsTabs({
   }, [items, normalizedPathname, searchParams]);
 
   useEffect(() => {
-    setOptimisticActiveKey(null);
-  }, [normalizedPathname]);
+    if (routerStatus === "idle") setOptimisticActiveKey(null);
+  }, [routerStatus, normalizedPathname, searchParams]);
 
   const resolvedActiveKey = optimisticActiveKey ?? pathActiveKey;
   const hrefForItem = useCallback(
@@ -356,8 +358,17 @@ export const AnalyticsTabs = memo(function AnalyticsTabs({
                   }
                 }}
                 href={hrefForItem(item)}
-                onClick={() => {
-                  setOptimisticActiveKey(item.key);
+                onClick={(event) => {
+                  if (
+                    !event.defaultPrevented &&
+                    event.button === 0 &&
+                    !event.metaKey &&
+                    !event.ctrlKey &&
+                    !event.shiftKey &&
+                    !event.altKey
+                  ) {
+                    setOptimisticActiveKey(item.key);
+                  }
                 }}
                 className={cn(
                   "relative inline-flex items-center gap-2 px-2.5 py-3 text-sm font-medium whitespace-nowrap transition-colors",

@@ -1,25 +1,15 @@
 import { createFileRoute, notFound, Outlet } from "@tanstack/react-router";
 
+import { loadDashboardRouteContext } from "@/lib/dashboard/client/route-context";
 import { loadDashboardTeam } from "@/lib/dashboard/route-data";
-
-let clientTeamCache: { teamSlug: string; teamContext: unknown } | null = null;
 
 export const Route = createFileRoute("/$locale/app/$teamSlug")({
   beforeLoad: async ({ params }) => {
-    if (
-      typeof window !== "undefined" &&
-      clientTeamCache &&
-      clientTeamCache.teamSlug === params.teamSlug
-    ) {
-      return { teamContext: clientTeamCache.teamContext };
-    }
-    const teamContext = await loadDashboardTeam({
-      data: { teamSlug: params.teamSlug },
-    });
+    const teamContext = await loadDashboardRouteContext(
+      ["team", params.teamSlug],
+      () => loadDashboardTeam({ data: { teamSlug: params.teamSlug } }),
+    );
     if (!teamContext) throw notFound();
-    if (typeof window !== "undefined") {
-      clientTeamCache = { teamSlug: params.teamSlug, teamContext };
-    }
     return { teamContext };
   },
   head: ({ match }) => {

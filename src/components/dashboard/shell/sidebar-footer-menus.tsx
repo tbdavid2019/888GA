@@ -23,6 +23,7 @@ import {
 import type { Locale } from "@/lib/i18n/config";
 import type { AppMessages } from "@/lib/i18n/messages";
 import { navigateWithTransition } from "@/lib/page-transition";
+import { getQueryClient } from "@/lib/query-client";
 import Link from "@/lib/router";
 import { useRouter } from "@/lib/router";
 import { cn } from "@/lib/utils";
@@ -80,6 +81,7 @@ export const SidebarFooterMenus = memo(function SidebarFooterMenus({
         credentials: "include",
       });
       if (!response.ok) throw new Error(messages.sidebarFooter.logoutFailed);
+      getQueryClient().clear();
       toast.success(messages.sidebarFooter.logoutSuccess);
       navigateWithTransition(router, "/" + locale + "/login");
     } catch (error) {

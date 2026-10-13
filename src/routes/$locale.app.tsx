@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import {
   createFileRoute,
   Outlet,
@@ -6,31 +7,25 @@ import {
 
 import { DashboardShell } from "@/components/dashboard/shell/dashboard-shell";
 import {
+  loadDashboardRouteContext,
+  seedDashboardRouteContext,
+} from "@/lib/dashboard/client/route-context";
+import {
   loadDashboardInitialWindow,
   loadDashboardRoot,
 } from "@/lib/dashboard/route-data";
 import type { DashboardTeamContext } from "@/lib/dashboard/server";
 import { buildManagementSections } from "@/lib/dashboard/team-sections";
 import { usePathname } from "@/lib/router";
-let clientRootCache: {
-  dashboardRoot: unknown;
-  initialDashboardWindow: unknown;
-} | null = null;
-
 export const Route = createFileRoute("/$locale/app")({
-  beforeLoad: async () => {
-    if (typeof window !== "undefined" && clientRootCache) {
-      return clientRootCache;
-    }
-    const [dashboardRoot, initialDashboardWindow] = await Promise.all([
-      loadDashboardRoot(),
-      loadDashboardInitialWindow(),
-    ]);
-    if (typeof window !== "undefined") {
-      clientRootCache = { dashboardRoot, initialDashboardWindow };
-    }
-    return { dashboardRoot, initialDashboardWindow };
-  },
+  beforeLoad: () =>
+    loadDashboardRouteContext(["root"], async () => {
+      const [dashboardRoot, initialDashboardWindow] = await Promise.all([
+        loadDashboardRoot(),
+        loadDashboardInitialWindow(),
+      ]);
+      return { dashboardRoot, initialDashboardWindow };
+    }),
   component: AppLayout,
 });
 function AppLayout() {
@@ -43,6 +38,19 @@ function AppLayout() {
         ?.context as { teamContext?: DashboardTeamContext } | undefined,
   });
   const teamContext = teamRouteContext?.teamContext;
+
+  useEffect(() => {
+    seedDashboardRouteContext(["root"], {
+      dashboardRoot,
+      initialDashboardWindow,
+    });
+    if (teamContext) {
+      seedDashboardRouteContext(
+        ["team", teamContext.activeTeam.slug],
+        teamContext,
+      );
+    }
+  }, [dashboardRoot, initialDashboardWindow, teamContext]);
 
   const shellContext = dashboardRoot ?? teamContext;
   if (!shellContext) return <Outlet />;

@@ -21,6 +21,7 @@ import { toast } from "sonner";
 
 import type { Locale } from "@/lib/i18n/config";
 import { navigateWithTransition } from "@/lib/page-transition";
+import { getQueryClient } from "@/lib/query-client";
 import { useRouter } from "@/lib/router";
 
 interface LoginFormProps {
@@ -338,6 +339,7 @@ export function LoginForm({
       }
       setRedirecting(true);
       loginSucceeded = true;
+      getQueryClient().clear();
       navigateWithTransition(router, payload.data.next || `/${locale}/app`);
     } catch (error) {
       const message = error instanceof Error ? error.message : failedLabel;

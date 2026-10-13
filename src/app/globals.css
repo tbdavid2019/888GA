@@ -197,11 +197,6 @@
     cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-[data-page-transition][data-transition="exit"] {
-  /* 避免長時間白屏：退出過渡不強制降為 0 透明度，僅阻擋點擊 */
-  pointer-events: none;
-}
-
 /* Table-row opacity is not consistently composited by browsers; fade cells instead. */
 @keyframes analytics-data-row-fade-in {
   from {
