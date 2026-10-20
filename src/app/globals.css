@@ -1,15 +1,15 @@
-@import "@fontsource-variable/jetbrains-mono/wght.css";
 @import "@insightflare/ui/styles.css";
 @import "@insightflare/product-ui/styles.css";
 @source "../";
 
 @theme inline {
   --font-sans:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang TC",
-    "Hiragino Sans CNS", "Microsoft JhengHei", "Noto Sans TC", "PingFang SC",
-    "Microsoft YaHei", sans-serif;
+    "JetBrains Mono", "Gen Jyuu Gothic", "Gen Jyuu Gothic P", "源柔黑體",
+    "源柔ゴシック", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "PingFang TC", "Hiragino Sans CNS", "Microsoft JhengHei", "Noto Sans TC",
+    sans-serif;
   --font-mono:
-    "JetBrains Mono Variable", "JetBrains Mono", "Cascadia Mono", Consolas,
+    "JetBrains Mono", "Gen Jyuu Gothic", "源柔黑體", "Cascadia Mono", Consolas,
     ui-monospace, monospace;
 
   /* 中文排版專用字級尺度：避免細小文字導致筆劃擠壓、模糊 */

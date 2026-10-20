@@ -5,6 +5,7 @@ import type { AppEnv } from "@/lib/hono/types";
 
 import { privateAdminRoutes } from "./admin";
 import { privateArchiveRoutes } from "./archive";
+import { privateDecisionRoutes } from "./decision";
 import { privateNotificationRoutes } from "./notifications";
 import { privateQueryRoutes } from "./query";
 import { privateRealtimeRoutes } from "./realtime";
@@ -18,6 +19,7 @@ privateRoutes.use("/*", requireSessionMiddleware());
 privateRoutes.route("/session", privateSessionRoutes);
 privateRoutes.route("/admin", privateAdminRoutes);
 privateRoutes.route("/archive", privateArchiveRoutes);
+privateRoutes.route("/decision", privateDecisionRoutes);
 privateRoutes.route("/notifications", privateNotificationRoutes);
 privateRoutes.route("/realtime", privateRealtimeRoutes);
 privateRoutes.route("/releases", privateReleaseRoutes);

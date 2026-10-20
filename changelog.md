@@ -1,3 +1,45 @@
+# 2026-10-20：v0.8.0 - Clef AI 決策引擎、本機 JetBrains Mono + 源柔黑體與 Demo 示範帳號
+
+日期：2026-10-20（Asia/Taipei）。
+
+## 變更
+
+- **Clef-Flash System One AI 決策引擎**：
+  - 實作三層彈性備援機制：Primary (`https://clef.create360.ai/v1/systemone`，<200ms 極速、免外部 Token 費用) → Fallback 2 (`https://clef.aiurl.tw/v1/systemone`) → Fallback 3 (`https://api.typesafe.ai/v1/systemone`，需 Bearer API 金鑰)。
+  - 支援快速機率型推論 (`noul`)、離散類別分佈 (`choice`) 與連續加權評分 (`score`)。
+  - 新增站台健康度評估 (`site-health`)：綜合評分（1~5 分）、核心瓶頸辨識（跳出率、伺服器延遲、錯誤率）與真實流量分析。
+  - 新增異常事件分類分流 (`anomaly-triage`)：營運緊急度（`p0` 至 `noise`）判定與可能成因歸類（源站故障、爬蟲暴增、追蹤碼未埋入、離峰業務波動）。
+  - 新增訪客與惡意爬蟲防護判定 (`bot-defense`)：結合 Client Hints、User Agent、路徑特徵與請求頻率，產生邊緣處置建議（`allow`、`challenge_turnstile`、`block_or_drop`）。
+  - 將非阻塞式 AI 診斷直接整合至邊緣警報通知流程（`evaluator.ts` 與 `content.ts`），於門檻與變更告警郵件/Webhook 中自動附帶根因診斷與改善建議。
+- **本機零外部依賴字型配置 (Local Typography)**：
+  - 全面升級字型堆疊為 **JetBrains Mono**（英數與代碼）搭配 **Gen Jyuu Gothic（源柔黑體）**（中文字型）。
+  - 完全移除 `@fontsource-variable/jetbrains-mono` 與任何遠端 `.woff` / `.woff2` 預載依賴，確保零網路開銷、瞬開本機渲染且符合最高隱私規範。
+  - 嚴格守護繁體中文 13px 筆劃清晰度與等寬數據表格對齊。
+- **內建示範測試帳號 (`demo` / `demo`)**：
+  - 提供即開即用的免設定測試登入體驗（帳號 `demo`、密碼 `demo`），無須先執行管理員引導或 D1 種子資料填充。
+  - 登入後預設呈現 3 組豐富且具真實感的示範站台（企業形象官網、電商購物商城、SaaS 雲端平台），包含完整的造訪趨勢、地理分佈與轉換漏斗數據。
+  - 嚴格的唯讀保護機制（Zero-Trust Mutation Guard）：所有寫入與修改請求（`POST`, `PUT`, `PATCH`, `DELETE`）在中介軟體層皆被安全攔截並回傳 `403 Forbidden` (`demo_read_only`)，確保展示環境資料純淨不被汙染。
+- **安全性與邊緣架構加固**：
+  - 依據 OpenCode 及 Codex 代碼審查建議，修補邊緣 AI 遙測之敏感標頭過濾（全面過濾 `Cookie`、`Authorization`、`X-API-Key`）。
+  - 加入輸入長度安全上限截斷 (`clampString`)，避免惡意超長 payload 耗盡邊緣 token 配額。
+  - 修正時間戳記秒/毫秒正規化邏輯（防範 1970 年邊緣回退）。
+  - 強化 AI 回應解構防護與非 2xx/4xx 備援策略，並為通知 cron 任務限制 1200ms 逾時以防工作逾時。
+- **多語系文件與截圖**：
+  - 新增繁中與英文示範儀表板高解析度截圖（`dashboard-overview-zh.png`、`dashboard-overview-en.png`、`dashboard-full-zh.png`）。
+  - 全面更新繁體中文、簡體中文與英文 README，詳細記錄與原作者版本之架構分差與專案特色。
+
+## 驗證結果
+
+- 單元測試與型別檢查 100% 通過（`pnpm test` / `pnpm typecheck`）。
+- 成功在本機模擬無頭瀏覽器環境擷取高畫質儀表板截圖。
+- 驗證 `demo` 帳號登入、三站台切換與寫入操作阻斷（`demo_read_only`）均符合預期。
+
+## 部署狀態
+
+- 本文件所列變更已納入 v0.8.0 正式版釋出範圍。
+
+---
+
 # 2026-10-13：分析分頁切換效能修正
 
 日期：2026-10-13（Asia/Taipei）。

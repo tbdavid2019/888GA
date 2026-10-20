@@ -6,9 +6,9 @@
 
 > Cloudflare 上で完全に動作する、強力でプライバシーに配慮したオープンソースの Web アナリティクスツールです。
 
-デモ: [http://insight-demo.ravelloh.com](http://insight-demo.ravelloh.com/)
+デモアカウント（即時体験）: ユーザー名 `demo` / パスワード `demo`（読み取り専用サンドボックス）
 
-![ScreenShot](/.github/screenshot/001.webp)
+![ScreenShot](/docs/images/dashboard-overview-zh.png)
 
 888GA は Cookie を使用せず、GDPR に準拠した形でアクセスを計測します。独自のスマートトラッキング強度機構が、地域ごとのプライバシー規制に応じて訪問者識別子の保持期間を調整し、データの完全性とプライバシーを両立します。
 

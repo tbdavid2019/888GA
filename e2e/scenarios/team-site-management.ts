@@ -132,18 +132,11 @@ export function registerTeamSiteManagementScenarios(context: E2eContext) {
     );
     await expect(
       page.locator('link[rel="preload"][as="font"][type="font/woff2"]'),
-    ).toHaveCount(1);
+    ).toHaveCount(0);
     await expect(page.locator("body")).toHaveCSS(
       "font-family",
-      /(PingFang TC|-apple-system|Segoe UI|sans-serif|system-ui)/,
+      /(JetBrains Mono|Gen Jyuu Gothic|PingFang TC|-apple-system|Segoe UI|sans-serif|system-ui)/,
     );
-    await expect
-      .poll(() =>
-        page.evaluate(() =>
-          document.fonts.check('400 16px "JetBrains Mono Variable"'),
-        ),
-      )
-      .toBe(true);
 
     const publicLinksResponse = await page.request.get(
       `/zh/app/${teamA?.slug}/public-links`,

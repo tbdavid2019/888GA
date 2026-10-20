@@ -22,8 +22,18 @@ const FUNNEL_PATH = "funnels";
 const GOAL_PATH = "goals";
 const TEAM_DASHBOARD_PATH = "team-dashboard";
 function privateQuery(pathname: string) {
-  return (c: Context<AppEnv>) => {
+  return async (c: Context<AppEnv>) => {
     const site = c.get("privateSite");
+    const session = c.get("session");
+    if (session?.userId === "demo-user-001") {
+      const { executeDemoQuery } =
+        await import("@/lib/edge/analytics/providers/mock/demo-query");
+      return executeDemoQuery({
+        siteId: site?.id || "demo-site-001",
+        url: requestUrl(c),
+        request: c.req.raw,
+      });
+    }
     if (!site) {
       throw new Error("private site context missing");
     }

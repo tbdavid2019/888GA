@@ -25,6 +25,9 @@ export interface Env {
   INSIGHTFLARE_E2E_CLOUDFLARE_API_URL?: string;
   INSIGHTFLARE_E2E_RESEND_API_URL?: string;
   INSIGHTFLARE_E2E_TURNSTILE_SITEVERIFY_URL?: string;
+  CLEF_API_URL?: string;
+  CLEF_FALLBACK_URL?: string;
+  TYPESAFE_API_KEY?: string;
 }
 
 export interface SerializedRequestPayload {

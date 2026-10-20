@@ -1,3 +1,4 @@
+import { ClefClient, triageAnomalyAlert } from "@/lib/decision";
 import type { Env } from "@/lib/edge/types";
 import { clampString } from "@/lib/edge/utils";
 import type { NotificationMessageDraft } from "@/lib/notifications/message";
@@ -391,7 +392,7 @@ async function evaluateThresholdRule(
     });
   }
   const triggered = combineTriggered(combinator, evaluations);
-  const data = {
+  const data: Record<string, unknown> = {
     ruleId: rule.id,
     siteId: rule.siteId,
     siteName: site,
@@ -423,6 +424,27 @@ async function evaluateThresholdRule(
       summary: `Threshold conditions already triggered for this window: ${conditionSummary(evaluations)}.`,
       data: { ...data, duplicate: true, triggerKey },
     };
+  }
+  const primaryEval = evaluations[0];
+  if (primaryEval) {
+    const triage = await triageAnomalyAlert(
+      {
+        siteName: site,
+        metric: primaryEval.metric,
+        window: primaryEval.window,
+        currentValue: primaryEval.value,
+        targetValue: primaryEval.target,
+        operator: primaryEval.operator,
+        timestamp: now * 1000,
+      },
+      ClefClient.fromEnv(env, { timeoutMs: 1200 }),
+    ).catch(() => null);
+
+    if (triage) {
+      data.aiDiagnosis = `${triage.diagnosticExplanation}（緊急度：${triage.urgency}，信心度：${(triage.causeConfidence * 100).toFixed(0)}%）`;
+      data.aiActionable = triage.isActionable;
+      data.aiUrgency = triage.urgency;
+    }
   }
   return {
     status: "triggered",
@@ -569,7 +591,7 @@ async function evaluateChangeRule(
         `${item.window.replaceAll("_", " ")} ${item.metric} changed ${numberWithCommas(item.change)}${item.mode === "percent" ? "%" : ""} (${numberWithCommas(item.previous)} to ${numberWithCommas(item.current)})`,
     )
     .join("; ");
-  const data = {
+  const data: Record<string, unknown> = {
     ruleId: rule.id,
     siteId: rule.siteId,
     siteName: site,
@@ -602,6 +624,27 @@ async function evaluateChangeRule(
       summary: `Change conditions already triggered for this window: ${summary}.`,
       data: { ...data, duplicate: true, triggerKey },
     };
+  }
+  const primaryChange = evaluations[0];
+  if (primaryChange) {
+    const triage = await triageAnomalyAlert(
+      {
+        siteName: site,
+        metric: primaryChange.metric,
+        window: primaryChange.window,
+        currentValue: primaryChange.current,
+        targetValue: primaryChange.previous,
+        operator: primaryChange.operator,
+        timestamp: now * 1000,
+      },
+      ClefClient.fromEnv(env, { timeoutMs: 1200 }),
+    ).catch(() => null);
+
+    if (triage) {
+      data.aiDiagnosis = `${triage.diagnosticExplanation}（緊急度：${triage.urgency}，信心度：${(triage.causeConfidence * 100).toFixed(0)}%）`;
+      data.aiActionable = triage.isActionable;
+      data.aiUrgency = triage.urgency;
+    }
   }
   return {
     status: "triggered",
@@ -675,7 +718,7 @@ async function evaluateMilestoneRule(
       },
     },
   };
-  const data = {
+  const data: Record<string, unknown> = {
     ruleId: rule.id,
     siteId: rule.siteId,
     siteName: site,
@@ -733,7 +776,7 @@ async function evaluateHealthRule(
   const lastSeenAt = await loadSiteLastSeenAt(env, rule.siteId, cache);
   const thresholdSeconds = Math.trunc(hours) * 3600;
   const triggered = lastSeenAt === null || now - lastSeenAt >= thresholdSeconds;
-  const data = {
+  const data: Record<string, unknown> = {
     ruleId: rule.id,
     siteId: rule.siteId,
     siteName: site,

@@ -92,10 +92,14 @@ export async function resolvePrivateSiteForSession(
   const siteId = normalizeFilterValue(url.searchParams.get("siteId"));
   if (!siteId) return badRequest("siteId is required", undefined, request);
 
-  if (isDemoBuild) {
+  if (isDemoBuild || session.userId === "demo-user-001") {
     const site = await demoSiteById(siteId);
     return site
-      ? { ...site, canManage: true }
+      ? {
+          ...site,
+          canManage:
+            !isDemoBuild && session.userId === "demo-user-001" ? false : true,
+        }
       : notFound("Site not found", undefined, request);
   }
 

@@ -456,15 +456,45 @@ export async function requireActor(
   if (!session) return una();
   const uid = clampString(session.userId, 120);
   if (!uid) return una();
+  if (uid === "demo-user-001") {
+    return {
+      user: {
+        id: "demo-user-001",
+        username: "demo",
+        email: "demo@insightflare.net",
+        name: "Demo User",
+        password_hash: null,
+        system_role: "user",
+        timezone: "UTC",
+        preferred_locale: "en",
+        created_at: 0,
+        updated_at: 0,
+      },
+      isAdmin: false,
+    };
+  }
   const user = await byId(env, uid);
   if (!user) return una("User not found");
   return { user, isAdmin: user.system_role === "admin" };
 }
 
+const DEMO_TEAM_RECORD: Record<string, unknown> = {
+  id: "demo-team-001",
+  name: "XEOOS Team",
+  slug: "xeoos-team",
+  ownerUserId: "demo-user-001",
+  membershipRole: "owner",
+  siteCount: 3,
+  memberCount: 1,
+};
+
 export async function teamsFor(
   env: Env,
   userId: string,
 ): Promise<Array<Record<string, unknown>>> {
+  if (userId === "demo-user-001") {
+    return [DEMO_TEAM_RECORD];
+  }
   const teams = scan(schema.teams);
   const members = scan(schema.team_members);
   const joined = join(
@@ -548,6 +578,18 @@ export async function teamGroupsForSession(
   teams: Array<Record<string, unknown>>;
   teamGroups: SessionTeamGroups;
 }> {
+  if (actor.user.id === "demo-user-001") {
+    const demoTeams = [DEMO_TEAM_RECORD];
+    return {
+      teams: demoTeams,
+      teamGroups: {
+        created: demoTeams,
+        managed: [],
+        member: [],
+        system: [],
+      },
+    };
+  }
   const userId = actor.user.id;
   const teams = scan(schema.teams);
   const members = scan(schema.team_members);

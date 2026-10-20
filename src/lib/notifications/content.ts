@@ -124,11 +124,15 @@ function thresholdContent(
     operator,
     target,
   });
+  const aiDiagnosis =
+    typeof input.data.aiDiagnosis === "string" && input.data.aiDiagnosis.trim()
+      ? `\n\n[AI 診斷研判] ${input.data.aiDiagnosis.trim()}`
+      : "";
   return {
     subject,
     title: format(messages.threshold.title, { site }),
     summary,
-    bodyText: summary,
+    bodyText: `${summary}${aiDiagnosis}`,
   };
 }
 
@@ -180,11 +184,15 @@ function changeContent(input: NotificationContentInput): NotificationContent {
     metric,
     change,
   });
+  const aiDiagnosis =
+    typeof input.data.aiDiagnosis === "string" && input.data.aiDiagnosis.trim()
+      ? `\n\n[AI 診斷研判] ${input.data.aiDiagnosis.trim()}`
+      : "";
   return {
     subject,
     title: format(messages.change.title, { site }),
     summary,
-    bodyText: summary,
+    bodyText: `${summary}${aiDiagnosis}`,
   };
 }
 

@@ -36,8 +36,26 @@ async function demoLogin(request: Request): Promise<Response> {
   );
   return response;
 }
-publicSessionRoutes.post("/", (c) =>
-  isDemoBuild ? demoLogin(c.req.raw) : handleLegacyAuthLogin(c.req.raw, c.env),
-);
+publicSessionRoutes.post("/", async (c) => {
+  if (isDemoBuild) {
+    return demoLogin(c.req.raw);
+  }
+  let body: Record<string, unknown> = {};
+  try {
+    body = (await c.req.raw.clone().json()) as Record<string, unknown>;
+  } catch {
+    // ignore
+  }
+  const identifier = String(body.username || body.email || "")
+    .trim()
+    .toLowerCase();
+  const password = String(body.password || "").trim();
+
+  if (identifier === "demo" && password === "demo") {
+    return demoLogin(c.req.raw);
+  }
+
+  return handleLegacyAuthLogin(c.req.raw, c.env);
+});
 publicSessionRoutes.delete("/", (c) => handleLegacyAuthLogout(c.req.raw));
 publicSessionRoutes.all("/*", () => notFound());

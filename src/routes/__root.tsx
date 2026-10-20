@@ -1,6 +1,5 @@
 import "@/lib/iconify";
 
-import jetBrainsMonoLatinUrl from "@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-wght-normal.woff2?url";
 import { Badge } from "@insightflare/ui/badge";
 import { Button } from "@insightflare/ui/button";
 import {
@@ -49,13 +48,6 @@ export const Route = createRootRoute({
     links: [
       { rel: "icon", href: "/favicon.ico" },
       { rel: "manifest", href: "/site.webmanifest" },
-      {
-        rel: "preload",
-        href: jetBrainsMonoLatinUrl,
-        as: "font",
-        type: "font/woff2",
-        crossOrigin: "anonymous",
-      },
       { rel: "stylesheet", href: globalStylesheetUrl },
     ],
   }),
