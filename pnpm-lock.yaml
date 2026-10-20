@@ -37,10 +37,10 @@ importers:
         specifier: ^6.0.2
         version: 6.0.2(react@19.2.8)
       '@insightflare/product-ui':
-        specifier: 0.7.1
+        specifier: 0.8.0
         version: link:packages/product-ui
       '@insightflare/ui':
-        specifier: 0.7.1
+        specifier: 0.8.0
         version: link:packages/ui
       '@noble/hashes':
         specifier: ^2.4.0
@@ -242,7 +242,7 @@ importers:
   packages/product-ui:
     dependencies:
       '@insightflare/ui':
-        specifier: 0.7.1
+        specifier: 0.8.0
         version: link:../ui
       '@remixicon/react':
         specifier: ^4.9.0
