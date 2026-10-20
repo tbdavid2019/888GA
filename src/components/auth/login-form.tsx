@@ -16,6 +16,7 @@ import {
   RiLoginBoxLine,
   RiRefreshLine,
   RiShieldCrossLine,
+  RiSparklingLine,
 } from "@remixicon/react";
 import { toast } from "sonner";
 
@@ -91,6 +92,55 @@ declare global {
 const TURNSTILE_SCRIPT_ID = "cloudflare-turnstile-script";
 const TURNSTILE_TOKEN_TTL_MS = 240_000;
 let turnstileScriptPromise: Promise<void> | null = null;
+
+const DEMO_LOCALIZED_CONTENT: Record<
+  Locale,
+  {
+    badge: string;
+    action: string;
+    quickFill: string;
+    quickFillSuccess: string;
+    description: string;
+    divider: string;
+  }
+> = {
+  "zh-tw": {
+    badge: "展示環境體驗",
+    action: "以 Demo 示範帳號一鍵進入",
+    quickFill: "填入帳密",
+    quickFillSuccess: "已填入示範帳密 (demo / demo)",
+    description:
+      "無需註冊，即刻進入完整指標儀表板、示範站點與 Clef AI 診斷環境（唯讀保護）。",
+    divider: "或使用示範帳號",
+  },
+  zh: {
+    badge: "演示环境体验",
+    action: "以 Demo 演示账号一键进入",
+    quickFill: "填入账密",
+    quickFillSuccess: "已填入演示账密 (demo / demo)",
+    description:
+      "无需注册，即刻进入完整指标仪表板、演示站点与 Clef AI 诊断环境（只读保护）。",
+    divider: "或使用演示账号",
+  },
+  en: {
+    badge: "Live Demo Access",
+    action: "One-click Sign in as Demo",
+    quickFill: "Fill credentials",
+    quickFillSuccess: "Demo credentials filled (demo / demo)",
+    description:
+      "No signup required. Instantly explore real-time analytics, mock sites, and Clef AI diagnosis (read-only).",
+    divider: "Or Explore with Demo",
+  },
+  ja: {
+    badge: "デモ環境を体験",
+    action: "Demo アカウントでワンクリック体験",
+    quickFill: "自動入力",
+    quickFillSuccess: "デモ用認証情報を入力しました (demo / demo)",
+    description:
+      "登録不要。完全なサイト分析ダッシュボード、デモサイト群、Clef AI 診断をすぐに体験できます（読み取り専用）。",
+    divider: "またはデモアカウントで試す",
+  },
+};
 
 function apiErrorCode(payload: LoginResponse): string {
   if (typeof payload.error === "string") return payload.error;
@@ -300,13 +350,23 @@ export function LoginForm({
     }
   }
 
-  async function handleLogin() {
+  const demoCopy = DEMO_LOCALIZED_CONTENT[locale] ?? DEMO_LOCALIZED_CONTENT.en;
+
+  const isDemoCredentials = (u: string, p: string) =>
+    u.trim().toLowerCase() === "demo" && p.trim() === "demo";
+
+  async function handleLogin(
+    targetUsername = username,
+    targetPassword = password,
+  ) {
     if (pending || redirecting) return;
     setPending(true);
     let loginSucceeded = false;
     try {
+      const isDemo = isDemoCredentials(targetUsername, targetPassword);
       const currentConfig = configRef.current;
-      const turnstileToken = currentConfig.enabled ? await runTurnstile() : "";
+      const turnstileToken =
+        !isDemo && currentConfig.enabled ? await runTurnstile() : "";
       const response = await fetch("/api/public/session", {
         method: "POST",
         credentials: "include",
@@ -314,10 +374,10 @@ export function LoginForm({
           "content-type": "application/json",
         },
         body: JSON.stringify({
-          username,
-          password,
+          username: targetUsername,
+          password: targetPassword,
           next: nextPath,
-          ...(currentConfig.enabled ? { turnstileToken } : {}),
+          ...(!isDemo && currentConfig.enabled ? { turnstileToken } : {}),
         }),
       });
       if (currentConfig.enabled) clearToken();
@@ -349,7 +409,21 @@ export function LoginForm({
     }
   }
 
+  function handleFillDemo() {
+    setUsername("demo");
+    setPassword("demo");
+    toast.success(demoCopy.quickFillSuccess);
+  }
+
+  function handleOneClickDemo() {
+    setUsername("demo");
+    setPassword("demo");
+    void handleLogin("demo", "demo");
+  }
+
+  const isDemoInput = isDemoCredentials(username, password);
   const securityBlocking =
+    !isDemoInput &&
     turnstileConfig.enabled &&
     (turnstileStatus === "checking" ||
       turnstileStatus === "loading" ||
@@ -426,6 +500,53 @@ export function LoginForm({
           <div ref={turnstileRef} className="hidden" aria-hidden="true" />
         ) : null}
       </form>
+
+      <div className="relative my-6">
+        <div className="absolute inset-0 flex items-center">
+          <span className="w-full border-t border-border/70" />
+        </div>
+        <div className="relative flex justify-center text-xs">
+          <span className="bg-card px-2.5 text-muted-foreground font-mono">
+            {demoCopy.divider}
+          </span>
+        </div>
+      </div>
+
+      <div className="rounded-lg border border-primary/20 bg-primary/5 p-4 space-y-3 transition-colors hover:border-primary/30">
+        <div className="flex items-center justify-between gap-2">
+          <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-foreground">
+            <RiSparklingLine className="size-3.5 text-primary shrink-0" />
+            {demoCopy.badge}
+          </span>
+          <button
+            type="button"
+            onClick={handleFillDemo}
+            className="text-xs text-primary font-medium hover:underline hover:text-primary/80 transition-colors"
+          >
+            {demoCopy.quickFill}
+          </button>
+        </div>
+
+        <Button
+          type="button"
+          variant="outline"
+          className="w-full justify-between h-9 text-xs border-primary/30 bg-background/80 hover:bg-primary/10 hover:border-primary/50 text-foreground transition-all group"
+          onClick={handleOneClickDemo}
+          disabled={pending || redirecting}
+        >
+          <span className="inline-flex items-center gap-1.5 font-medium">
+            <RiSparklingLine className="size-3.5 text-primary group-hover:rotate-12 transition-transform" />
+            <span>{demoCopy.action}</span>
+          </span>
+          <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-[11px] text-muted-foreground group-hover:text-foreground">
+            demo / demo
+          </code>
+        </Button>
+
+        <p className="text-[11px] leading-relaxed text-muted-foreground">
+          {demoCopy.description}
+        </p>
+      </div>
 
       <Dialog open={securityDialogOpen} onOpenChange={setSecurityDialogOpen}>
         <DialogContent className="max-w-sm">
