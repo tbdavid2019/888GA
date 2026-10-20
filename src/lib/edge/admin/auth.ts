@@ -461,7 +461,7 @@ export async function requireActor(
       user: {
         id: "demo-user-001",
         username: "demo",
-        email: "demo@insightflare.net",
+        email: "demo@david888.com",
         name: "Demo User",
         password_hash: null,
         system_role: "user",

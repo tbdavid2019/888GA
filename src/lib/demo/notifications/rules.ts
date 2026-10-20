@@ -43,12 +43,12 @@ export function demoLocale(value: unknown): Locale {
   return value === "zh" ? "zh" : "en";
 }
 function demoSiteDomain(siteId: string | null | undefined): string {
-  if (!siteId) return "demo.insightflare.net";
+  if (!siteId) return "flow.aiurl.tw";
   for (const team of getDemoTeams()) {
     const site = getDemoSites(team.id).find((item) => item.id === siteId);
     if (site) return site.domain;
   }
-  return "demo.insightflare.net";
+  return "flow.aiurl.tw";
 }
 function escapeDemoNotificationHtml(value: string): string {
   return value

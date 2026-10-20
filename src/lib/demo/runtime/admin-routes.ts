@@ -286,7 +286,7 @@ export function handleDemoAdminRoutes(
             email,
             payload: { teamRole: role, siteIds },
             code: token,
-            url: `https://demo.insightflare.net/invite#token=${token}`,
+            url: `https://flow.aiurl.tw/invite#token=${token}`,
             createdByUserId: getDemoUser().id,
             createdAt: now,
             expiresAt: now + Number(bodyRecord.expiresInHours || 72) * 60 * 60,
@@ -295,7 +295,7 @@ export function handleDemoAdminRoutes(
             revokedAt: null,
             status: "active",
           },
-          url: `https://demo.insightflare.net/invite#token=${token}`,
+          url: `https://flow.aiurl.tw/invite#token=${token}`,
         },
       };
     }

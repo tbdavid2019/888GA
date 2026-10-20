@@ -307,9 +307,9 @@ export function generateDemoNotificationMessages(
   const primarySite = sites[0] ?? null;
   const docsSite = sites[1] ?? primarySite;
   const apiSite = sites[2] ?? primarySite;
-  const primaryDomain = primarySite?.domain ?? "demo.insightflare.net";
-  const docsDomain = docsSite?.domain ?? "docs.insightflare.net";
-  const apiDomain = apiSite?.domain ?? "api.insightflare.net";
+  const primaryDomain = primarySite?.domain ?? "flow.aiurl.tw";
+  const docsDomain = docsSite?.domain ?? "docs.flow.aiurl.tw";
+  const apiDomain = apiSite?.domain ?? "api.flow.aiurl.tw";
   return [
     demoTypedNotificationMessage({
       id: "demo-notification-message-attention",
