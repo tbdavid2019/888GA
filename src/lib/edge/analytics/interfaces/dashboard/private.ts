@@ -127,7 +127,7 @@ export function executePrivateQuery(
 ): Promise<Response> {
   const ctx = responseContext(input);
   const queryContext = siteQueryContext(input.siteId, "private-dashboard");
-  if (isDemoBuild) {
+  if (isDemoBuild || input.siteId.startsWith("demo-")) {
     const operation = operationForQueryRoute(input.pathname);
     return import("@/lib/edge/analytics/interfaces/mock").then(
       ({ executeMockQuery }) =>
