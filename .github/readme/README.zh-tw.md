@@ -19,10 +19,11 @@
 
 ---
 
-## 🎮 免設定 Demo 示範帳號 (Instant Demo Sandbox)
+## 🎮 線上測試站台與免設定 Demo (Live Demo Sandbox)
 
-想要在不修改任何現有資料庫、無須部署雲端資源的情況下體驗 888GA？系統已內建專屬展示帳號：
+想要在不修改任何現有資料庫、無須部署雲端資源的情況下體驗 888GA？歡迎直接造訪線上測試站台登入體驗：
 
+- **線上測試站台**：[https://flow.aiurl.tw](https://flow.aiurl.tw)
 - **展示帳號**：`demo`
 - **展示密碼**：`demo`
 

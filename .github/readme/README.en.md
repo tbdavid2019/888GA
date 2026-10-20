@@ -19,10 +19,11 @@
 
 ---
 
-## 🎮 Instant Demo Sandbox (`demo` / `demo`)
+## 🎮 Live Demo Sandbox (`demo` / `demo`)
 
-Want to explore the capabilities of 888GA without setting up Cloudflare resources or a local database?
+Want to explore the capabilities of 888GA without setting up Cloudflare resources or a local database? Visit our live demo instance:
 
+- **Live Demo Site**: [https://flow.aiurl.tw](https://flow.aiurl.tw)
 - **Username**: `demo`
 - **Password**: `demo`
 

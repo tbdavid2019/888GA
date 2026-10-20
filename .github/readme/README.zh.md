@@ -19,10 +19,11 @@
 
 ---
 
-## 🎮 免配置 Demo 示范账号 (Instant Demo Sandbox)
+## 🎮 在线测试站点与免配置 Demo (Live Demo Sandbox)
 
-想要在不修改任何数据库、无需部署云端资源的情况下体验 888GA？系统已内置专属演示账号：
+想要在不修改任何数据库、无需部署云端资源的情况下体验 888GA？欢迎直接访问在线测试站点登录体验：
 
+- **在线测试站点**：[https://flow.aiurl.tw](https://flow.aiurl.tw)
 - **演示账号**：`demo`
 - **演示密码**：`demo`
 

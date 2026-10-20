@@ -6,7 +6,8 @@
 
 > Cloudflare 上で完全に動作する、強力でプライバシーに配慮したオープンソースの Web アナリティクスツールです。
 
-デモアカウント（即時体験）: ユーザー名 `demo` / パスワード `demo`（読み取り専用サンドボックス）
+オンラインデモ（即時体験）: [https://flow.aiurl.tw](https://flow.aiurl.tw)  
+デモアカウント: ユーザー名 `demo` / パスワード `demo`（読み取り専用サンドボックス）
 
 ![ScreenShot](/docs/images/dashboard-overview-zh.png)
 
