@@ -263,9 +263,15 @@ export async function fetchPublicSite(
   }
   if (!slug) return notFound("Public site not found");
 
-  if (isDemoBuild) {
+  if (
+    isDemoBuild ||
+    slug.startsWith("demo-") ||
+    slug === "corporate" ||
+    slug === "ecommerce" ||
+    slug === "saas"
+  ) {
     const site = await demoSiteByPublicSlug(slug);
-    return site ?? notFound("Public site not found");
+    if (site) return site;
   }
 
   const sites = scan(schema.sites);

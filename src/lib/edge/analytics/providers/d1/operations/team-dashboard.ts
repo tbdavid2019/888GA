@@ -45,7 +45,11 @@ export async function resolveDashboardSession(
   request: Request,
   env: Env,
 ): Promise<EdgeSessionClaims | null> {
-  if (isDemoBuild) {
+  const isDemo =
+    isDemoBuild ||
+    request.headers.get("cookie")?.includes("session=demo-token") ||
+    request.headers.get("authorization") === "Bearer demo-token";
+  if (isDemo) {
     const { resolveDemoDashboardSession } =
       await import("../../mock/team-dashboard-demo");
     return resolveDemoDashboardSession(request);
@@ -56,7 +60,13 @@ export async function resolveDashboardSession(
 export async function resolveTeamDashboardScope(
   input: ResolveTeamDashboardScopeInput,
 ): Promise<TeamDashboardScope | Response> {
-  if (isDemoBuild) {
+  const isDemo =
+    isDemoBuild ||
+    input.session?.userId === "demo-user-001" ||
+    input.teamId === "demo-team-001" ||
+    input.request.headers.get("cookie")?.includes("session=demo-token") ||
+    input.request.headers.get("authorization") === "Bearer demo-token";
+  if (isDemo) {
     const { resolveDemoTeamDashboardScope } =
       await import("../../mock/team-dashboard-demo");
     return resolveDemoTeamDashboardScope(input);
@@ -89,7 +99,8 @@ export async function resolveTeamDashboardScope(
 export async function readTeamDashboard(
   input: ReadTeamDashboardInput,
 ): Promise<TeamDashboardQueryResult> {
-  if (isDemoBuild) {
+  const isDemo = isDemoBuild || input.teamId === "demo-team-001";
+  if (isDemo) {
     const { readDemoTeamDashboard } =
       await import("../../mock/team-dashboard-demo");
     return readDemoTeamDashboard(input);

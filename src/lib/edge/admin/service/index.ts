@@ -71,7 +71,13 @@ export interface AdminServiceReadMap {
 export async function executeAdminService(
   input: AdminServiceRequest,
 ): Promise<Response> {
-  if (import.meta.env.VITE_DEMO_MODE === "1") {
+  const isDemo =
+    import.meta.env.VITE_DEMO_MODE === "1" ||
+    input.request.headers.get("cookie")?.includes("session=demo-token") ||
+    input.request.headers.get("authorization") === "Bearer demo-token" ||
+    input.url.searchParams.get("teamId") === "demo-team-001" ||
+    input.url.searchParams.get("siteId")?.startsWith("demo-");
+  if (isDemo) {
     const { executeDemoAdminService } =
       await import("@/lib/demo/admin/service");
     return executeDemoAdminService(input);

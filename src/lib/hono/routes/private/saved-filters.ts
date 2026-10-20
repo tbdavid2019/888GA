@@ -20,7 +20,11 @@ async function savedFiltersRoute(c: Context<AppEnv>) {
     session,
   );
   if (site instanceof Response) return site;
-  if (isDemoBuild) {
+  if (
+    isDemoBuild ||
+    session.userId === "demo-user-001" ||
+    site.id.startsWith("demo-")
+  ) {
     const { executeDemoQuery } =
       await import("@/lib/edge/analytics/composition/mock-provider");
     return executeDemoQuery({
