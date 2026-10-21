@@ -282,7 +282,6 @@ export function LoginForm({
         "error-callback": () => {
           clearToken();
           setTurnstileStatus("error");
-          setSecurityDialogOpen(true);
           verificationPromiseRef.current = null;
           reject(new Error("turnstile_error"));
         },
@@ -322,7 +321,6 @@ export function LoginForm({
     } catch {
       clearToken();
       setTurnstileStatus("error");
-      setSecurityDialogOpen(true);
     }
   }, [clearToken, runTurnstile]);
 
@@ -427,8 +425,7 @@ export function LoginForm({
     turnstileConfig.enabled &&
     (turnstileStatus === "checking" ||
       turnstileStatus === "loading" ||
-      turnstileStatus === "running" ||
-      turnstileStatus === "error");
+      turnstileStatus === "running");
   const buttonDisabled = pending || redirecting || securityBlocking;
   const buttonLabel = redirecting
     ? redirectingLabel

@@ -16,6 +16,7 @@ const KNOWN_VAR_KEYS = [
   "PARQUET_WASM_URL",
   "DEMO_MODE",
   "DISABLE_CRON_TASKS",
+  "INSIGHTFLARE_LOGIN_TURNSTILE_DISABLED",
 ] as const;
 
 function normalizeEnvName(value: string): string {

@@ -9,6 +9,7 @@ compatibility_flags = ["nodejs_compat", "global_fetch_strictly_public"]
 SESSION_WINDOW_MINUTES = "30"
 SCRIPT_CACHE_TTL_SECONDS = "600"
 PARQUET_WASM_URL = "https://cdn.jsdelivr.net/npm/parquet-wasm@0.7.1/esm/parquet_wasm_bg.wasm"
+INSIGHTFLARE_LOGIN_TURNSTILE_DISABLED = "1"
 
 [triggers]
 crons = ["*/30 * * * *"]
@@ -72,6 +73,7 @@ name = "insightflare"
 SESSION_WINDOW_MINUTES = "30"
 SCRIPT_CACHE_TTL_SECONDS = "600"
 PARQUET_WASM_URL = "https://cdn.jsdelivr.net/npm/parquet-wasm@0.7.1/esm/parquet_wasm_bg.wasm"
+INSIGHTFLARE_LOGIN_TURNSTILE_DISABLED = "1"
 
 [env.ravelloh.triggers]
 crons = ["*/30 * * * *"]
