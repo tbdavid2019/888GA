@@ -127,9 +127,7 @@ export function registerTeamSiteManagementScenarios(context: E2eContext) {
       waitUntil: "domcontentloaded",
     });
     await expect(page.getByText("正在开发中", { exact: true })).toBeVisible();
-    await expect(page.locator("body")).toHaveAttribute(
-      "data-overlayscrollbars-initialize",
-    );
+    await expect(page.locator("[data-page-scroll-container]")).toBeVisible();
     await expect(
       page.locator('link[rel="preload"][as="font"][type="font/woff2"]'),
     ).toHaveCount(0);
