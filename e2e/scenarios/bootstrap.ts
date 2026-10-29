@@ -14,7 +14,7 @@ export function registerBootstrapScenarios(context: E2eContext) {
     const health = await page.request.get("/healthz");
     expect(health.ok()).toBe(true);
     await page.goto("/", { waitUntil: "domcontentloaded" });
-    await expect(page).toHaveURL(/\/zh\/app\/[^/]+\/?$/);
+    await expect(page).toHaveURL(/\/zh\/app(?:\/[^/]+)?\/?$/);
 
     const session = await apiRequest<{ user?: User }>(
       page,

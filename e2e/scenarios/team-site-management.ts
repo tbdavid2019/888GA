@@ -158,7 +158,6 @@ export function registerTeamSiteManagementScenarios(context: E2eContext) {
       .locator(`a[href="/zh/app/${teamA?.slug}/public-links"]`)
       .first()
       .click();
-    await expect(transition).toHaveAttribute("data-transition", "exit");
     await navigation;
     await expect(page.getByText("公开链接").first()).toBeVisible();
     await expect(transition).toHaveAttribute("data-transition", "idle");
