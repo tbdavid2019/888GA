@@ -272,6 +272,7 @@ export async function fetchPublicSite(
   ) {
     const site = await demoSiteByPublicSlug(slug);
     if (site) return site;
+    if (isDemoBuild) return notFound("Public site not found");
   }
 
   const sites = scan(schema.sites);

@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import "shadcn/tailwind.css";
+@import "../styles/shadcn.css";
 @source "./components/ui";
 @import "../styles/index.css";
 @import "overlayscrollbars/styles/overlayscrollbars.css";

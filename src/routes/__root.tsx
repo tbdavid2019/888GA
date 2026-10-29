@@ -117,7 +117,7 @@ export function NotFoundPage() {
     />
   );
 }
-export function ErrorPage({ error }: { error: Error }) {
+export function ErrorPage({ error }: { error: unknown }) {
   const pathname = useLocation({ select: (location) => location.pathname });
   const locale = resolveLocale(pathname.split("/")[1]);
   const messages = getMessages(locale);
