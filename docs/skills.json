@@ -1,7 +1,7 @@
 {
   "manifestVersion": 1,
   "api": "888GA API",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "baseUrl": "${baseUrl}",
   "description": "Agent operating guide for the 888GA public API.",
   "openapi": {
