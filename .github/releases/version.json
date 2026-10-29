@@ -1,5 +1,18 @@
 [
   {
+    "tagName": "v0.8.1",
+    "name": "Release v0.8.1",
+    "htmlUrl": "https://github.com/tbdavid2019/888GA/releases/tag/v0.8.1",
+    "changelogPath": "changelog/v0.8.1.md",
+    "publishedAt": "2026-10-29T15:43:41+08:00",
+    "createdAt": "2026-10-29T15:43:41+08:00",
+    "updatedAt": "2026-10-29T15:43:41+08:00",
+    "targetCommitish": "be57d83daa45c2de46a6b6d55b59d2c5ec9a918c",
+    "authorLogin": null,
+    "draft": false,
+    "prerelease": false
+  },
+  {
     "tagName": "v0.8.0",
     "name": "Release v0.8.0",
     "htmlUrl": "https://github.com/tbdavid2019/888GA/releases/tag/v0.8.0",
